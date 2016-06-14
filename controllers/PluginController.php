@@ -53,7 +53,7 @@ class PluginController extends Controller
 
     function githubPluginUpdaterInit() {
 
-        include_once('updater.php');
+        require_once (__DiR__.'/../class/plugin/updater.php');
 
         define('WP_GITHUB_FORCE_UPDATE', true);
 
@@ -73,7 +73,7 @@ class PluginController extends Controller
             'readme' => 'README.md' // which file to use as the readme for the version number
         );
 
-        $w = new WPGitHubUpdater($config);
+        $w = new \WPGitHubUpdater($config);
 
     }
 }
