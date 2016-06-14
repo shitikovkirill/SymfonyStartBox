@@ -31,4 +31,8 @@ class MyCredController extends Controller
         require_once (__DIR__.'/../model/myCred/Registration.php');
         require_once (__DIR__.'/../model/myCred/MyCred.php');
     }
+
+    public function addCreditForm(){
+        \Timber::render('form/add-credit-form.twig');
+    }
 }

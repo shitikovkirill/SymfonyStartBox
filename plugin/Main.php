@@ -21,12 +21,10 @@ class Main extends Plugin
 	 */
 	public function init()
 	{
-		// i.e.
-		// add_action( 'save_post', [ &$this, 'save_post' ] );
-		// 
-		// $this->add_action( 'save_post', 'PostController@save' );
-		// 
-		// $this->add_shortcode( 'hello_world', 'view@shout', [ 'message' => 'Hello World!' ] );
+		$this->add_filter('timber/loader/paths', 'TimberController@addLocation', 1000);
+		$this->add_filter('timber/loader/twig', 'TimberController@changeTwig', 1000);
+		
+		$this->add_action ( 'djd-site-post-before-button', 'MyCredController@addCreditForm');
 	}
 
 	/**
@@ -46,6 +44,8 @@ class Main extends Plugin
 
 		$this->add_action ( 'mycred_load_hooks', 'MyCredController@loadMyCustomHook');
 		$this->add_filter ( 'mycred_setup_hooks', 'MyCredController@registerMyCustomHook');
-		$this->add_action ( 'djd-site-post-before-button', 'MyCredController@addCreditForm');
+
+		$this->add_filter('timber/loader/paths', 'TimberController@addLocation', 1000);
+		$this->add_filter('timber/loader/twig', 'TimberController@changeTwig', 1000);
 	}
 }

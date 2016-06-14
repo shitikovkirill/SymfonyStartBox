@@ -21,5 +21,6 @@ Author: Shitikov Kirill
 //
 //------------------------------------------------------------
 define('BWP_PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('BWP_PLUGIN_PATH', __DIR__);
 
 require_once( plugin_dir_path( __FILE__ ) . 'boot/bootstrap.php' );
