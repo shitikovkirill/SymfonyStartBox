@@ -8,7 +8,6 @@
 
 namespace Bunch\Controllers;
 
-
 use Amostajo\LightweightMVC\Controller;
 
 class PluginController extends Controller
@@ -20,6 +19,7 @@ class PluginController extends Controller
                 'advanced-custom-fields/acf.php',
                 'acf-options-page/acf-options-page.php',
                 'acf-repeater/acf-repeater.php',
+                'mycred/mycred.php',
             );
 
             $deactivate = false;
@@ -47,13 +47,18 @@ class PluginController extends Controller
     }
 
     public function yourMastActivatePlugins(){
-        $message = "Для активации этого плагина необходимо установить следующие плагины Timber, Advanced Custom Fields, Advanced Custom Fields: Repeater Field, Advanced Custom Fields: Options Page";
+        $message = "Для активации этого плагина необходимо установить следующие плагины 
+        Timber, 
+        Advanced Custom Fields, 
+        Advanced Custom Fields: Repeater Field, 
+        Advanced Custom Fields: Options Page, 
+        myCRED";
         echo "<div class='error'> <p>{$message}</p></div>";
     }
 
     function githubPluginUpdaterInit() {
 
-        require_once (__DiR__.'/../class/plugin/updater.php');
+        require_once (__DiR__.'/../model/plugin/updater.php');
 
         define('WP_GITHUB_FORCE_UPDATE', true);
 

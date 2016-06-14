@@ -43,5 +43,9 @@ class Main extends Plugin
 
 		$this->add_filter ( 'acf/options_page/settings','AdminController@addOptionPage');
 		$this->add_action ( 'admin_menu', 'AdminController@addOptionPage');
+
+		$this->add_action ( 'mycred_load_hooks', 'MyCredController@loadMyCustomHook');
+		$this->add_filter ( 'mycred_setup_hooks', 'MyCredController@registerMyCustomHook');
+		$this->add_action ( 'djd-site-post-before-button', 'MyCredController@addCreditForm');
 	}
 }
