@@ -2,3 +2,5 @@
 /cache
 /logs
 composer.lock
+.idea
+ayuco
