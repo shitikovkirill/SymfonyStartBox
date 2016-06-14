@@ -36,16 +36,12 @@ class Main extends Plugin
 	 */
 	public function on_admin()
 	{
-		// i.e.
-		// add_action( 'admin_init', [ &$this, 'admin_init' ] );
-		//
-		
 		$this->add_action( 'activate_bunch-with-post/plugin.php', 'PluginController@init' );
 		$this->add_action( 'admin_init', 'PluginController@init' );
 		$this->add_filter( 'plugin_row_meta', 'PluginController@showPluginSlug', 10, 4 );
-		$this->add_action('init', 'PluginController@githubPluginUpdaterInit');
+		$this->add_action( 'init', 'PluginController@githubPluginUpdaterInit');
 
-		$this->add_filter ('acf/options_page/settings','AdminController@addOptionPage');
-		$this->add_action('admin_menu', 'AdminController@addOptionPage');
+		$this->add_filter ( 'acf/options_page/settings','AdminController@addOptionPage');
+		$this->add_action ( 'admin_menu', 'AdminController@addOptionPage');
 	}
 }

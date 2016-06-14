@@ -61,7 +61,7 @@ class PluginController extends Controller
         $git_url = 'github.com/shitikovkirill/'.$proper_folder_name;
 
         $config = array(
-            'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
+            'slug' => BWP_PLUGIN_BASENAME, // this is the slug of your plugin
             'proper_folder_name' => $proper_folder_name, // this is the name of the folder your plugin lives in
             'api_url' => 'https://api.'.$git_url, // the github API url of your github repo
             'raw_url' => 'https://raw.'.$git_url.'/master', // the github raw url of your github repo
