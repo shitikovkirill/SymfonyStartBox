@@ -3,15 +3,11 @@
 
 Plugin Name: Bunch with post
 
-Plugin URI: [MY URL]
-
-Description: [MY DESCRIPTION]
+Description: Bunch with post
 
 Version: 1.0
 
-Author: [MY NAME OR COMPANY]
-
-Author URI: [MY IR COMPANY URL]
+Author: Shitikov Kirill
 
 */
 
