@@ -23,7 +23,9 @@ class Main extends Plugin
 	{
 		$this->add_filter('timber/loader/paths', 'TimberController@addLocation', 1000);
 		$this->add_filter('timber/loader/twig', 'TimberController@changeTwig', 1000);
-		
+
+		$this->add_action( 'save_post', 'MyCredController@savePointsInPost');
+
 		$this->add_action ( 'djd-site-post-before-button', 'MyCredController@addCreditForm');
 	}
 
@@ -39,11 +41,13 @@ class Main extends Plugin
 		$this->add_filter( 'plugin_row_meta', 'PluginController@showPluginSlug', 10, 4 );
 		$this->add_action( 'init', 'PluginController@githubPluginUpdaterInit');
 
-		$this->add_filter ( 'acf/options_page/settings','AdminController@addOptionPage');
-		$this->add_action ( 'admin_menu', 'AdminController@addOptionPage');
+		$this->add_filter( 'acf/options_page/settings','AdminController@addOptionPage');
+		$this->add_action( 'admin_menu', 'AdminController@addOptionPage');
 
-		$this->add_action ( 'mycred_load_hooks', 'MyCredController@loadMyCustomHook');
-		$this->add_filter ( 'mycred_setup_hooks', 'MyCredController@registerMyCustomHook');
+		$this->add_action( 'mycred_load_hooks', 'MyCredController@loadMyCustomHook');
+		$this->add_filter( 'mycred_setup_hooks', 'MyCredController@registerMyCustomHook');
+		$this->add_action( 'save_post', 'MyCredController@savePointsInPost');
+		$this->add_action( 'djd-site-post-before-button', 'MyCredController@addCreditForm');
 
 		$this->add_filter('timber/loader/paths', 'TimberController@addLocation', 1000);
 		$this->add_filter('timber/loader/twig', 'TimberController@changeTwig', 1000);

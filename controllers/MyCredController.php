@@ -32,7 +32,12 @@ class MyCredController extends Controller
         require_once (__DIR__.'/../model/myCred/MyCred.php');
     }
 
+    public function savePointsInPost($post_ID, $post, $update){
+        echo '<pre>';
+        var_dump($post_ID, $post, $update); die; echo '</pre>';
+    }
+
     public function addCreditForm(){
-        \Timber::render('form/add-credit-form.twig');
+        $this->view->show('form/add-credit-form.php');
     }
 }
