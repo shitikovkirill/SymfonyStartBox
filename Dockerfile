@@ -8,6 +8,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt
 # Install PHP extantions
 RUN apt-get update && apt-get install -y php7.1 php7.1-dev php7.1-gd php7.1-gettext php7.1-intl php7.1-mcrypt php7.1-common php7.1-mysql php7.1-zip php7.1-xml
 RUN apt-get install -y curl libcurl3 php7.1-curl
+RUN apt-get install -y php7.1-sqlite3
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
