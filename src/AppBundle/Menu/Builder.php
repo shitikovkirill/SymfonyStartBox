@@ -25,18 +25,20 @@ class Builder implements ContainerAwareInterface
         $menu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
 
 
-        /*if($this->container->get('security.context')->isGranted(array('ROLE_ADMIN', 'ROLE_USER'))) {
-            /*$menu->addChild('Admin')
+
+
+        if($this->container->get('security.authorization_checker')->isGranted(array('ROLE_ADMIN'))) {
+            $menu->addChild('Admin', array('route' => 'sonata_admin_dashboard'));
         }
-        if($this->container->get('security.context')->isGranted(array('ROLE_ADMIN', 'ROLE_USER'))) {
+        if(!$this->container->get('security.authorization_checker')->isGranted(array('IS_AUTHENTICATED_FULLY'))) {
+            $menu->addChild('Register', array('route' => 'fos_user_registration_register'));
+            $menu->addChild('Log in', array('route' => 'fos_user_security_login'));
+        }else {
+            $menu->addChild('Profile', array('route' => 'fos_user_profile_show'));
+            $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
+        }
 
-        }*/
 
-       /* $menu->addChild('User', array('label' => 'Hi visitor'))
-            ->setAttribute('dropdown', true)
-            ->setAttribute('icon', 'fa fa-user');
-        $menu['User']->addChild('Edit profile', array('route' => 'acme_hello_profile'))
-            ->setAttribute('icon', 'fa fa-edit');*/
         return $menu;
     }
 }
