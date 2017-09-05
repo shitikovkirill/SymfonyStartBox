@@ -1,0 +1,22 @@
+body{padding-top: 20px; font-size: 18px}
+.title {text-align: center;font-size:25px}
+.tools {float:right}
+form {text-align: center;margin-top: 20px}
+form > #form_makros{ width: 100%}
+.required {display: block;margin-top: 20px}
+#form_name {width: 40%;margin-top: 10px}
+#form_makros_category, div > #form_makros{width: 40%;height: 20px;margin-top: 10px}
+#form_makros_makros{width: 40%;height: 100px;margin-top: 10px}
+#form_save, #form_category_save, #form_makros_save {padding: 10px;border: 2px solid orangered;background: orange;color:white;margin-top:20px}
+#form_category_category{width: 30%;height: 20px;margin-top: 10px}
+.main{position: relative}
+.blocks{display: inline-block;width: 500px;border:1px solid black;min-height: 100px;margin-right: 10px; margin-top: 20px;vertical-align: top}
+.window {width: 96%;min-height: 50px; margin-top: 50px; border: 1px solid red;margin-left: 2%; background: white}
+#hello_but, #goodbye_but{display: none}
+ul{margin:0;padding:0}
+ul li{display: inline-block}
+ul li a, .menu_support a,#but,.button{padding: 7px;border: 2px solid orangered;background: blue;color:white;text-decoration:none}
+.menu_support{text-align: center}
+#but{margin-left:45%;margin-top:10px;font-size: 25px}
+.cont{text-align: center}
+.but{position: absolute; top: 30px;margin-left: 200px; padding: 7px;border: 2px solid orangered;background: grey;color:white}

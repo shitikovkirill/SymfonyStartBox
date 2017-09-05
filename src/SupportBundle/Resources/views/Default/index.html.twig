@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="menu_support">
+    <a href="{{ path('add_category') }}" >Add new category</a> || <a href="{{ path('add_makros') }}">Add new makros</a>
+    </div>
+    <div class="main">
+    {% for categories in category %}
+        <div class="blocks" id="{{ categories.category }}_block">
+            <pre id="win_{{ categories.category }}" class="window"></pre>
+            <button type="button" data-clipboard-target="#win_{{ categories.category }}" class="but" onmousedown="get('hello'), get1('{{ categories.category }}', 3), get2('goodbye'), sum('{{ categories.category }}')" id="{{ categories.category }}_but">{{ categories.category }}</button>
+            {% for makroses in makros if makroses.category == categories.category %}
+                    <span id="{{ categories.category }}{{ loop.index }}">{{ makroses.makros }}</span><br>
+                    <span class="tools tools_{{ categories.category }}"><a href="{{ path('edit_makroses', {id: makroses.id }) }}">Edit</a> || <a href="{{ path('delete_makroses', {id: makroses.id }) }}">Delete</a></span>
+                    <br><hr>
+            {% endfor %}
+
+
+            <br><a href="{{ path('delete_category', {id: categories.id }) }}">Delete category</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

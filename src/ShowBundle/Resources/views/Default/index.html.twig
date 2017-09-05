@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for makros in makro %}
+        <pre id="{{ makros.name }}_{{ makros.id }}">{{ makros.makros }}</pre>
+        <button type="button" data-clipboard-target="#{{ makros.name }}_{{ makros.id }}">{{ makros.name }}</button>
+        <span class="tools"><a href="{{ path('edit_makros', {id: makros.id }) }}">Edit</a> || <a href="{{ path('delete_makros', {id: makros.id }) }}">Delete</a></span>
+        <hr>
+    {% endfor %}
+    <br><a href="{{ path("add") }}" class="button">Add Makros</a><br><br>
+{% endblock %}
