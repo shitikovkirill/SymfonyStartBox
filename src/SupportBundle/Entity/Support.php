@@ -23,10 +23,10 @@ class Support
 
 
     /**
-     * @ORM\Column(type="text")
-     *
+     * Many Supports have Many Categories.
+     * @ORM\ManyToMany(targetEntity="Category", mappedBy="supports")
      */
-    private $category;
+    private $categories;
 
 
     /**
@@ -68,6 +68,22 @@ class Support
         $this->makros =$makros;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
     }
 }
 

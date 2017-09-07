@@ -29,6 +29,13 @@ class Category
     private $category;
 
     /**
+     * Many Categories have Many Supports.
+     * @ORM\ManyToMany(targetEntity="Support", inversedBy="categories")
+     * @ORM\JoinTable(name="categories_supports")
+     */
+    private $supports;
+
+    /**
      * Get id
      *
      * @return int
@@ -48,6 +55,22 @@ class Category
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSupports()
+    {
+        return $this->supports;
+    }
+
+    /**
+     * @param mixed $supports
+     */
+    public function setSupports($supports)
+    {
+        $this->supports = $supports;
     }
 }
 
