@@ -2,3 +2,16 @@ services:
 #    support.example:
 #        class: SupportBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    support.admin.category:
+        class: SupportBundle\Admin\CategoryAdmin
+        arguments: [~, SupportBundle\Entity\Category, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Category }
+        public: true
+
+    support.admin.support:
+        class: SupportBundle\Admin\SupportAdmin
+        arguments: [~, SupportBundle\Entity\Support, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Support }
+        public: true

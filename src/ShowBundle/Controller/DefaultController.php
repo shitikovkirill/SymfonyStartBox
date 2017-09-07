@@ -11,12 +11,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-
+/**
+ * @Security("has_role('ROLE_EMPLOYEE')")
+ */
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/monitoring", name="monitoring")
      */
     public function indexAction()
     {
@@ -28,7 +31,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route("/edit/{id}", name="edit_makros", requirements={"id" = "\d+"})
+     * @Route("/monitoring/edit/{id}", name="edit_makros", requirements={"id" = "\d+"})
      */
     public function editAction($id, Request $request)
     {
@@ -45,7 +48,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($makros);
             $em->flush();
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('monitoring');
         }
         return $this->render('ShowBundle:Default:edit.html.twig', array(
             'form_edit_makros' => $form->createView()
@@ -55,7 +58,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route("/delete/{id}", name="delete_makros", requirements={"id" = "\d+"})
+     * @Route("/monitoring/delete/{id}", name="delete_makros", requirements={"id" = "\d+"})
      */
     public function deleteAction($id, Request $request)
     {
@@ -63,13 +66,13 @@ class DefaultController extends Controller
         $makros = $em->getRepository(Shows::class)->find($id);
         $em->remove($makros);
         $em->flush();
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('monitoring');
     }
 
 
 
     /**
-     * @Route("/add", name="add")
+     * @Route("/monitoring/add", name="add")
      */
     public function addAction(Request $request)
     {
@@ -81,7 +84,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($makros);
             $em->flush();
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('monitoring');
         }
 
         return $this->render('ShowBundle:Default:create.html.twig', array(

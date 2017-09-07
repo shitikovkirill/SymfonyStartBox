@@ -2,3 +2,9 @@ services:
 #    show.example:
 #        class: ShowBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    show.admin.shows:
+        class: ShowBundle\Admin\ShowsAdmin
+        arguments: [~, ShowBundle\Entity\Shows, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Shows }
+        public: true
