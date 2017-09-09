@@ -45,18 +45,7 @@ class Support
     {
         return $this->id;
     }
-
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
+    
 
     public function getMakros()
     {
@@ -85,5 +74,8 @@ class Support
     {
         $this->categories = $categories;
     }
+
+
+
 }
 

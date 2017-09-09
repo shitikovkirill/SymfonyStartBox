@@ -28,6 +28,7 @@ class Category
      */
     private $category;
 
+
     /**
      * Many Categories have Many Supports.
      * @ORM\ManyToMany(targetEntity="Support", inversedBy="categories")
@@ -72,5 +73,9 @@ class Category
     {
         $this->supports = $supports;
     }
+
+ 
+
+
 }
 
