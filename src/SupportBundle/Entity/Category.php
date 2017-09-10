@@ -31,8 +31,7 @@ class Category
 
     /**
      * Many Categories have Many Supports.
-     * @ORM\ManyToMany(targetEntity="Support", inversedBy="categories")
-     * @ORM\JoinTable(name="categories_supports")
+     * @ORM\OneToMany(targetEntity="Support", mappedBy="category")
      */
     private $supports;
 
@@ -59,6 +58,14 @@ class Category
         $this->category = $category;
 
         return $this;
+    }
+
+    public function addSupport($support) {
+        $this->supports[]= $support;
+    }
+
+    public function removeSupport($category) {
+        $this->categories->removeElement($category);
     }
 
     /**

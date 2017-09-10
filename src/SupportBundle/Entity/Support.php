@@ -24,9 +24,10 @@ class Support
 
     /**
      * Many Supports have Many Categories.
-     * @ORM\ManyToMany(targetEntity="Category", mappedBy="supports")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="supports")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    private $categories;
+    private $category;
 
 
     /**
@@ -36,9 +37,6 @@ class Support
     private $makros = "";
 
 
-    public function __construct() {
-        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     /**
      * Get id
      *
@@ -65,17 +63,17 @@ class Support
     /**
      * @return mixed
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 
     /**
-     * @param mixed $categories
+     * @param mixed $category
      */
-    public function setCategories($categories)
+    public function setCategory($category)
     {
-        $this->categories = $categories;
+        $this->category = $category;
     }
 
     public function __toString()

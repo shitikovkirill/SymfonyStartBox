@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use SupportBundle\Entity\Category;
 
 class SupportAdmin extends AbstractAdmin
 {
@@ -45,7 +46,7 @@ class SupportAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('categories')
+            ->add('category', 'sonata_type_model')
             ->add('makros')
         ;
     }
