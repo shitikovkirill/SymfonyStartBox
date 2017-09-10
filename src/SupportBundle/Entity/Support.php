@@ -33,7 +33,7 @@ class Support
      * @ORM\Column(type="text")
      *
      */
-    private $makros;
+    private $makros = "";
 
 
     /**
@@ -75,7 +75,10 @@ class Support
         $this->categories = $categories;
     }
 
-
+    public function __toString()
+    {
+        return $this->makros;
+    }
 
 }
 

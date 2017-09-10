@@ -26,7 +26,7 @@ class Category
      * @ORM\Column(type="text")
      *
      */
-    private $category;
+    private $category = "";
 
 
     /**
@@ -74,7 +74,10 @@ class Category
         $this->supports = $supports;
     }
 
- 
+    public function __toString()
+    {
+        return $this->category;
+    }
 
 
 }

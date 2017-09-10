@@ -16,7 +16,7 @@ class Builder implements ContainerAwareInterface
 
         $menu->addChild('Home', array('route' => 'homepage'));
 
-        if($this->container->get('security.authorization_checker')->isGranted(array('IS_AUTHENTICATED_FULLY'))) {
+        if($this->container->get('security.authorization_checker')->isGranted(array('ROLE_EMPLOYEE'))) {
             $menu->addChild('Monitoring', array('route' => 'monitoring'));
             $menu->addChild('Support', array('route' => 'support'));
         }

@@ -3,7 +3,7 @@
 {% block body %}
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-4">Hello, Murka peoples!</h1>
+            <h1 class="display-4">Hello, Murka people!</h1>
             <p>This application is created specifically for the services support and monitoring.</p>
             <p>Pleasant and productive work, after you log in to your account!</p>
         </div>
@@ -17,13 +17,16 @@
 
                 <div class="blog-post">
 
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <h2 class="blog-post-title">Best of luck!</h2>
-                    <p>Now, get to work! And put your ass on them!</p>
-                    <p><img src="/images/pc-cat.jpg"></p>
+                    {% if is_granted("ROLE_EMPLOYEE") %}
+                        <h2 class="blog-post-title">Best of luck!</h2>
+                        <p>Now, get to work! And put ass on them!</p>
+                        <p><img src="/images/pc-cat.jpg"></p>
+                    {% elseif is_granted("IS_AUTHENTICATED_FULLY") %}
+                        <h2 class="blog-post-title">Ok.</h2>
+                        <p>Now you need to wait for your account verification.</p>
                     {% else %}
-                    <h2 class="blog-post-title">How to start?</h2>
-                    <p>To continue working with the application, you need to register, or if you already have your
+                        <h2 class="blog-post-title">How to start?</h2>
+                        <p>To continue working with the application, you need to register, or if you already have your
                         account created, then you need to log in.</p>
                     {% endif %}
 
@@ -31,7 +34,7 @@
 
             </div><!-- /.blog-main -->
 
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% if is_granted("ROLE_EMPLOYEE") %}
             <div class="col-sm-3 offset-sm-1 blog-sidebar">
 
                 <div class="sidebar-module">
