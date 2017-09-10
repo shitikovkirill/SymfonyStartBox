@@ -17,7 +17,7 @@ class SupportAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('categories')
+            ->add('category')
             ->add('makros')
         ;
     }
@@ -28,7 +28,7 @@ class SupportAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('categories')
+            ->add('category')
             ->add('makros')
             ->add('_action', null, array(
                 'actions' => array(
@@ -57,7 +57,7 @@ class SupportAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('categories')
+            ->add('category')
             ->add('makros')
         ;
     }
