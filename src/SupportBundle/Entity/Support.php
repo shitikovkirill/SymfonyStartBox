@@ -36,6 +36,9 @@ class Support
     private $makros = "";
 
 
+    public function __construct() {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * Get id
      *
