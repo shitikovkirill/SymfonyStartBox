@@ -4,17 +4,28 @@
     <div class="menu_support">
     </div>
 
-    <div class="main">
+    <div class="container">
     {% for categories in category %}
-        <div class="blocks" id="{{ categories.category }}_block">
+        <div>
+            <b class="spoiler-title">{{ categories.category }}</b>
+        <div class="spoiler-body" id="{{ categories.category }}_block">
             <pre id="win_{{ categories.category }}" class="window"></pre>
-            <button type="button" data-clipboard-target="#win_{{ categories.category }}" class="but" onmousedown="get('hello'), get1('{{ categories.category }}', 3), get2('goodbye'), sum('{{ categories.category }}')" id="{{ categories.category }}_but">{{ categories.category }}</button>
+            <button type="button" data-clipboard-target="#win_{{ categories.category }}" class="but" onmousedown="get('hello'), get1('{{ categories.category }}', 3), get2('goodbye'), sum('{{ categories.category }}')" id="{{ categories.category }}_but">{{ categories.category }}</button><br>
            {% for support in categories.supports %}
-                {{ dump(support) }}
+               <span class="count_{{ categories.category }}" id="{{ categories.category }}{{ loop.index }}">{{ support.makros }}</span>
+
+               <hr>
             {% endfor %}
-                    <span id="{{ categories.category }}{{ loop.index }}"></span><br>
-                    <br><hr>
+        </div>
         </div>
     {% endfor %}
     </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.spoiler-body').hide();
+            $('.spoiler-title').click(function(){
+                $(this).next().toggle(500)});
+        });
+    </script>
 {% endblock %}
