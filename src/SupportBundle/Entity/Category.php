@@ -2,6 +2,7 @@
 
 namespace SupportBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,7 +37,7 @@ class Category
     private $supports;
 
     public function __construct() {
-        $this->supports = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->supports = new ArrayCollection();
     }
     /**
      * Get id
