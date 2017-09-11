@@ -1,6 +1,6 @@
 <ul class="{{ item.childrenAttributes.class }}">
     {% for children in item.children %}
-        <li class="nav-item {% if children.current %} active {% endif %}">
+        <li class="nav-item{% if children.current %} active{% endif %}">
             <a class="nav-link" href="{{ children.uri }}">{{ children.name }}</a>
         </li>
     {% endfor %}
