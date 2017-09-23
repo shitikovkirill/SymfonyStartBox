@@ -9,9 +9,13 @@ use SupportBundle\Forms\FormMakros;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/support")
+ *
+ * @Security("has_role('ROLE_EMPLOYEE')")
+ *
  */
 class DefaultController extends Controller
 {

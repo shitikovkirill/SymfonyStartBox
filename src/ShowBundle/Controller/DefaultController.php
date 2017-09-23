@@ -14,12 +14,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
+ * @Route("/monitoring")
+ *
  * @Security("has_role('ROLE_EMPLOYEE')")
  */
 class DefaultController extends Controller
 {
     /**
-     * @Route("/monitoring", name="monitoring")
+     * @Route("/", name="monitoring")
      */
     public function indexAction()
     {
@@ -31,7 +33,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route("/monitoring/edit/{id}", name="edit_makros", requirements={"id" = "\d+"})
+     * @Route("/edit/{id}", name="edit_makros", requirements={"id" = "\d+"})
      */
     public function editAction($id, Request $request)
     {
@@ -58,7 +60,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route("/monitoring/delete/{id}", name="delete_makros", requirements={"id" = "\d+"})
+     * @Route("/delete/{id}", name="delete_makros", requirements={"id" = "\d+"})
      */
     public function deleteAction($id, Request $request)
     {
@@ -72,7 +74,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/monitoring/add", name="add")
+     * @Route("/add", name="add")
      */
     public function addAction(Request $request)
     {

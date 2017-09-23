@@ -10,7 +10,7 @@
             <b class="spoiler-title">{{ categories.category }}</b>
         <div class="spoiler-body" id="{{ categories.category }}_block">
             <pre id="win_{{ categories.category }}" class="window"></pre>
-            <button type="button" data-clipboard-target="#win_{{ categories.category }}" class="but" onmousedown="get('hello'), get1('{{ categories.category }}', 3), get2('goodbye'), sum('{{ categories.category }}')" id="{{ categories.category }}_but">{{ categories.category }}</button><br>
+            <button type="button" data-clipboard-target="#win_{{ categories.category }}" class="btn btn-primary" onmousedown="get('hello'), get1('{{ categories.category }}', 3), get2('goodbye'), sum('{{ categories.category }}')" id="{{ categories.category }}_but">{{ categories.category }}</button><br>
            {% for support in categories.supports %}
                <span class="count_{{ categories.category }}" id="{{ categories.category }}{{ loop.index }}">{{ support.makros }}</span>
 
