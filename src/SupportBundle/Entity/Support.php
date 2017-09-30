@@ -23,7 +23,7 @@ class Support
 
 
     /**
-     * Many Supports have Many Categories.
+     * One Supports have Many Categories.
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="supports")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */

@@ -3,9 +3,12 @@
 {% block body %}
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-4">Hello, Murka people!</h1>
+            <h1 class="display-4">Hello!</h1>
+            {% if is_granted("ROLE_EMPLOYEE") %}
             <p>This application is created specifically for the services support and monitoring.</p>
-            <p>Pleasant and productive work, after you log in to your account!</p>
+            {% else %}
+                <p>Pleasant and productive work, after you log in to your account!</p>
+            {% endif %}
         </div>
     </div>
 
@@ -19,7 +22,7 @@
 
                     {% if is_granted("ROLE_EMPLOYEE") %}
                         <h2 class="blog-post-title">Best of luck!</h2>
-                        <p>Now, get to work! And put ass on them!</p>
+                        <p>Now, get to work!</p>
                         <p><img src="/images/pc-cat.jpg"></p>
                     {% elseif is_granted("IS_AUTHENTICATED_FULLY") %}
                         <h2 class="blog-post-title">Ok.</h2>

@@ -32,9 +32,19 @@ class Category
 
     /**
      * Many Categories have Many Supports.
-     * @ORM\OneToMany(targetEntity="Support", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Support", mappedBy="category", cascade="remove")
      */
     private $supports;
+
+    /**
+     *
+     * Many Categories have One User.
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="categories")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+
 
     public function __construct() {
         $this->supports = new ArrayCollection();
@@ -65,9 +75,11 @@ class Category
         $this->supports[]= $support;
     }
 
-    public function removeSupport($category) {
-        $this->categories->removeElement($category);
+    public function removeCategory($category) {
+        $this->category->removeElement($category);
     }
+
+
 
     /**
      * @return mixed
@@ -85,10 +97,22 @@ class Category
         $this->supports = $supports;
     }
 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
     public function __toString()
     {
         return $this->category;
     }
+
+
 
 
 }

@@ -4,9 +4,10 @@
     <div class="container">
         <br>
         {% for makros in makro %}
-            <pre id="{{ makros.name }}_{{ makros.id }}">{{ makros.makros }}</pre>
+            <pre id="{{ makros.name }}_{{ makros.id }}" class="hover">{{ makros.makros }}</pre>
             <button type="button" data-clipboard-target="#{{ makros.name }}_{{ makros.id }}">{{ makros.name }}</button>
-            <span class="tools"><a href="{{ path('edit_makros', {id: makros.id }) }}">Edit</a> || <a href="{{ path('delete_makros', {id: makros.id }) }}">Delete</a></span>
+            <img src="/images/Settings.svg" class="spoiler-title float-right">
+            <span class="spoiler-body tools float-right"><a href="{{ path('edit_makros', {id: makros.id }) }}">Edit</a> || <a href="{{ path('delete_makros', {id: makros.id }) }}" class="delete">Delete</a></span>
             <hr>
         {% endfor %}
         <br><a href="{{ path("add") }}" class="button">Add Makros</a><br><br>

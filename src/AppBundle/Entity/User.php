@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -24,9 +25,21 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * One User have Many Categories.
+     * @ORM\OneToMany(targetEntity="SupportBundle\Entity\Category", mappedBy="user")
+     */
+    private $categories;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
+        $this->categories = new ArrayCollection();
+    }
+
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
