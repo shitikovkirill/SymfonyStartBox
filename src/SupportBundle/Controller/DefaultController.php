@@ -26,7 +26,8 @@ class DefaultController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Category::class);
         $categories = $repository->findBy(array('user' => null));
-        return $this->render('SupportBundle:Default:support.html.twig', array('categories'=>$categories));
+        return $this->render('SupportBundle:Default:index.html.twig', array('categories'=>$categories,
+            'edit_able'=>false));
     }
 
     /**
@@ -36,8 +37,10 @@ class DefaultController extends Controller
     {
         $user = $this->getUser();
         $categories = $user->getCategories();
+        
 
-        return $this->render('SupportBundle:Default:index.html.twig', array('categories'=>$categories,));
+        return $this->render('SupportBundle:Default:index.html.twig', array('categories'=>$categories,
+            'edit_able'=>true));
     }
 
     /**
@@ -67,12 +70,12 @@ class DefaultController extends Controller
      */
     public function addmakrosAction($id, Request $request)
     {
-        $em=$this->getDoctrine();
+        $em = $this->getDoctrine();
         $category = $em->getRepository(Category::class)->find($id);
         $makros = new Support();
+        $makros->setCategory($category);
         $form = $this->createForm(FormMakros::class, $makros);
         $form->handleRequest($request);
-        $makros->setCategory($category);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($makros);

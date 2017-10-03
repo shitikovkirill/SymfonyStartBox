@@ -26,10 +26,9 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('category')
+            ->addIdentifier('category')
             ->add('_action', null, array(
                 'actions' => array(
-                    'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 ),
@@ -44,6 +43,9 @@ class CategoryAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('category')
+            ->add( 'supports', 'sonata_type_collection',
+                array( 'type_options' => array( 'delete' => true, ),
+                    ), array( 'edit' => 'inline', 'inline' => 'table', 'sortable' => 'position', ) )
         ;
     }
 
@@ -54,6 +56,16 @@ class CategoryAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('category')
+            ->add('supports')
         ;
+    }
+
+    public function createQuery($context = 'list')
+    {
+        $query = parent::createQuery($context);
+        $query->andWhere($query->getRootAlias().'.user is null ');
+
+
+        return $query;
     }
 }

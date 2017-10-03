@@ -32,7 +32,10 @@ class Category
 
     /**
      * Many Categories have Many Supports.
-     * @ORM\OneToMany(targetEntity="Support", mappedBy="category", cascade="remove")
+     * @ORM\ManyToMany(targetEntity="Support", cascade={"all"}, fetch="LAZY")
+     * @ORM\JoinTable(name="category_supports",
+     *  joinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="support_id", referencedColumnName="id", unique=true)})
      */
     private $supports;
 
