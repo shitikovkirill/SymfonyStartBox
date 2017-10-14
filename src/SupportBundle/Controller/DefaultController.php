@@ -72,13 +72,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine();
         $category = $em->getRepository(Category::class)->find($id);
-        $makros = new Support();
-        $makros->setCategory($category);
-        $form = $this->createForm(FormMakros::class, $makros);
+        $form = $this->createForm(FormMakros::class, $category);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($makros);
+            $em->persist($category);
             $em->flush();
             return $this->redirectToRoute('private');
         }
@@ -130,7 +128,6 @@ class DefaultController extends Controller
     }
 
     /**
-     *
      * @Route("/private/delete/category/{id}", name="delete_category", requirements={"id" = "\d+"})
      */
     public function deletecategoryAction($id, Request $request)
