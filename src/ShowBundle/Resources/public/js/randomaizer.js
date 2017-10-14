@@ -14,7 +14,7 @@ var text;
 var text1;
 var text2;
 function get(num) {
-    var count = document.getElementsByClassName('tools_hello').length;
+    var count = document.getElementsByClassName('count_hello').length;
     var rand = Math.random() * (count - 0) + 0;
     for(var i = 0; i <= count; i++){
         if(rand <= i && rand > i - 1){
@@ -26,7 +26,7 @@ function get(num) {
 
 
 function get1(num1) {
-    var count1 = document.getElementsByClassName('tools_'+num1).length;
+    var count1 = document.getElementsByClassName('count_'+num1).length;
     var rand1 = Math.random() * (count1 - 0) + 0;
     for(var i1 = 0; i1 <= count1; i1++){
         if(rand1 <= i1 && rand1 > i1 - 1){
@@ -36,7 +36,7 @@ function get1(num1) {
 }
 
 function get2(num2) {
-    var count2 = document.getElementsByClassName('tools_goodbye').length;
+    var count2 = document.getElementsByClassName('count_goodbye').length;
     var rand2 = Math.random() * (count2 - 0) + 0;
     for(var i2 = 0; i2 <= count2; i2++){
         if(rand2 <= i2 && rand2 > i2 - 1){
