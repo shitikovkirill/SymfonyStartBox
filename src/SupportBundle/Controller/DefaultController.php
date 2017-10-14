@@ -68,13 +68,16 @@ class DefaultController extends Controller
     /**
      * @Route("/private/add-makros/{id}", name="add_makros")
      */
-    public function addmakrosAction($id, Request $request)
+    public function addMakrosAction(Category $category, Request $request)
     {
-        $em = $this->getDoctrine();
-        $category = $em->getRepository(Category::class)->find($id);
-        $form = $this->createForm(FormMakros::class, $category);
+        $form = $this->createForm(FormMakros::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $support = new Support();
+            $support ->setMakros($form->get('support')->getViewData());
+
+            $category->addSupport($support);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
@@ -90,20 +93,20 @@ class DefaultController extends Controller
      *
      * @Route("/private/edit/{id}", name="edit_makroses", requirements={"id" = "\d+"})
      */
-    public function editmakrosAction($id, Request $request)
+    public function editMakrosAction(Support $support, Request $request)
     {
-        $em = $this->getDoctrine();
-        $makros = $em->getRepository(Support::class)->find($id);
-        if(!$makros)
+        if(!$support)
         {
             throw $this->createAccessDeniedException('You cannot access this page!');
         }
-        $form = $this->createForm( FormMakros::class, $makros );
+        $form = $this->createForm( FormMakros::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $support ->setMakros($form->get('support')->getViewData());
+
             $em = $this->getDoctrine()->getManager();
-            $em->persist($makros);
+            $em->persist($support);
             $em->flush();
             return $this->redirectToRoute('private');
         }
@@ -118,11 +121,15 @@ class DefaultController extends Controller
      *
      * @Route("/private/delete/{id}", name="delete_makroses", requirements={"id" = "\d+"})
      */
-    public function deletemakrosAction($id, Request $request)
+    public function deleteMakrosAction(Support $support, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $makros = $em->getRepository(Support::class)->find($id);
-        $em->remove($makros);
+        $stmt = $em->getConnection()->executeQuery(
+            'DELETE FROM category_supports WHERE support_id = :support_id',
+            [   'support_id'   => $support->getId()]
+        );
+        $stmt->execute();
+        $em->remove($support);
         $em->flush();
         return $this->redirectToRoute('private');
     }
@@ -130,7 +137,7 @@ class DefaultController extends Controller
     /**
      * @Route("/private/delete/category/{id}", name="delete_category", requirements={"id" = "\d+"})
      */
-    public function deletecategoryAction($id, Request $request)
+    public function deleteCategoryAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository(Category::class)->find($id);

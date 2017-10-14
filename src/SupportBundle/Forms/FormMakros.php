@@ -24,14 +24,7 @@ class FormMakros extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('supports', TextType::class)
+        $builder->add('support', TextType::class)
             ->add('save', SubmitType::class);
-    }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => 'SupportBundle\Entity\Category'
-        ]);
     }
 }

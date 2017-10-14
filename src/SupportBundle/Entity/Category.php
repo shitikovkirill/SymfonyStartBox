@@ -70,12 +70,11 @@ class Category
     public function setCategory($category)
     {
         $this->category = $category;
-
         return $this;
     }
 
-    public function addSupport($support) {
-        $this->supports[]= $support;
+    public function addSupport(Support $support) {
+        $this->supports[] = $support;
     }
 
     public function removeCategory($category) {
