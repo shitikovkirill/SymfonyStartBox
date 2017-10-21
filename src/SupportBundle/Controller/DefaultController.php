@@ -100,6 +100,7 @@ class DefaultController extends Controller
             throw $this->createAccessDeniedException('You cannot access this page!');
         }
         $form = $this->createForm( FormMakros::class);
+        $form->get('support')->setData($support->getMakros());
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
