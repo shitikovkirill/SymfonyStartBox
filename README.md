@@ -23,9 +23,9 @@ docker-compose run --rm web bin/console doctrine:schema:create
 docker-compose run --rm web bin/console fos:user:create
 ```
 
-[locashost:8000](http://locashost:8000)
+Run in browser: [locashost:8000](http://locashost:8000)
 
-### Debug
+### XDebug
 
 For run in PHPStorm
 Settings->PHP->Servers
