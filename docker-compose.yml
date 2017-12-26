@@ -2,7 +2,7 @@
 version: "2"
 services: 
   web:
-    image: med_test
+    image: start_box
     build:
       context: .
       dockerfile: Dockerfile
