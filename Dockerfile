@@ -42,4 +42,4 @@ COPY ext-xdebug.ini /etc/php/7.1/cli/conf.d/
 WORKDIR /var/www/symfony
 
 ADD . /var/www/symfony
-RUN cd /var/www/symfony && ls  #composer install --no-scripts
+RUN cd /var/www/symfony && ls  && composer install --no-scripts
