@@ -54,6 +54,9 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts"
+        ],
+        "compile": [
+            "cp app/config/parameters.yml.dist app/config/parameters.yml"
         ]
     },
     "config": {
