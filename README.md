@@ -1,11 +1,16 @@
 Template for starting a new project on Symfony
 =============================================
 
+### Demo
+
+[See this](https://guarded-garden-90997.herokuapp.com/)
+
+
 ### Description
 
 1. PHP 7.1
 2. Symfony 3.3
-3. Sqlite
+3. MySql
 
 ### Installed Bundles
 
@@ -16,7 +21,7 @@ Template for starting a new project on Symfony
 ```
 docker-compose up
 
-docker-compose run --rm web bin/console asserts:install
+docker-compose run --rm web bin/console assets:install
 
 docker-compose run --rm web bin/console doctrine:schema:create
 
