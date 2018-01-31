@@ -5,6 +5,10 @@ Template for starting a new project on Symfony
 
 [See this](https://guarded-garden-90997.herokuapp.com/)
 
+Admin user: admin - admin
+
+Guest user: guest - guest
+
 
 ### Description
 
