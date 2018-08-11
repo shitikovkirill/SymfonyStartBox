@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
             new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
             new Ibrows\SonataTranslationBundle\IbrowsSonataTranslationBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new AppBundle\AppBundle(),
         ];
