@@ -19,11 +19,21 @@
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
         ]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/wearemarketing/IbrowsSonataTranslationBundle.git"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "friendsofsymfony/user-bundle": "~2.0",
+        "ibrows/sonata-translation-bundle": "dev-fix-compatible-form",
         "incenteev/composer-parameter-handler": "^2.0",
+        "lexik/translation-bundle": "^4.0",
+        "lunetics/locale-bundle": "^2.6",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "sonata-project/admin-bundle": "^3.22",
@@ -33,7 +43,7 @@
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/symfony": "3.4.*",
         "twig/twig": "^1.0||^2.0",
-        "friendsofsymfony/user-bundle": "~2.0"
+        "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

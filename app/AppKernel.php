@@ -21,6 +21,10 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+            new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
+            new Ibrows\SonataTranslationBundle\IbrowsSonataTranslationBundle(),
 
             new AppBundle\AppBundle(),
         ];

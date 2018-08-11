@@ -18,16 +18,17 @@ security:
         main:
             pattern: ^/
             form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
-            logout:       true
+            logout:
+                path: fos_user_security_logout
+                target: /
             anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(ru|uk)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(ru|uk)/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(ru|uk)/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }

@@ -1,0 +1,31 @@
+lunetics_locale:
+    strict_mode: false
+    strict_match: true
+    allowed_locales:
+      - ru
+      - uk
+
+    guessing_order:
+      - session
+      - cookie
+      - browser
+      - query
+      - router
+
+    cookie:
+        set_on_change: true
+
+    switcher:
+        show_current_locale: true
+
+lexik_translation:
+    fallback_locale: [ru]         # (required) default locale(s) to use
+    managed_locales: [ru,uk] # (required) locales that the bundle has to manage
+
+ibrows_sonata_translation:
+    defaultDomain: messages
+    editable:
+        mode: inline		 # Mode of editable, can be popup or inline
+        type: textarea		 # Type of input. Can be text|textarea|select|date|checklist and more
+        emptytext: Empty 	 # text to display on empty translations
+        placement: top

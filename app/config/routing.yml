@@ -1,6 +1,9 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+    prefix: /{_locale}
+    requirements:
+        _locale: ru|uk
 
 admin_area:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
@@ -13,3 +16,6 @@ _sonata_admin:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /{_locale}
+    requirements:
+        _locale: ru|uk

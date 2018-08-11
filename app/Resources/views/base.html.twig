@@ -18,6 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             {{ knp_menu_render('AppBundle:Builder:mainMenu', {'template':'menu.html.twig'}) }}
             {{ knp_menu_render('AppBundle:Builder:userMenu', {'template':'menu.html.twig'}) }}
+            {{ locale_switcher() }}
         </div>
     </nav>
         {% block body %}{% endblock %}
