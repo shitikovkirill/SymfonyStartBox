@@ -31,7 +31,7 @@ class LocaleRewriteListener implements EventSubscriberInterface
      */
     public function __construct(
         RouterInterface $router,
-        array $supportedLocales = array('en')
+        array $supportedLocales = array('ru', 'uk')
     ) {
         $this->routeCollection = $router->getRouteCollection();
         $this->supportedLocales = $supportedLocales;
