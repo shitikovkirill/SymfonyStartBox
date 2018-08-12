@@ -1,47 +1,528 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/base.html.twig' %}
 
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
-            </div>
-
-            <div id="status">
-                <p>
-                    <svg id="icon-status" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z" fill="#759E1A"/></svg>
-
-                    Your application is now ready. You can start working on it at:
-                    <code>{{ base_dir }}</code>
+{% block content_transition %}
+    <!--главный экран-->
+    <section class="container-fluid first-1">
+        <div class="center-content">
+            <div class="container">
+                <h1 class="wow flipInX" data-wow-duration="1.1s" data-wow-delay=".1s"
+                    style="visibility: visible; animation-duration: 1.1s; animation-delay: 0.1s; animation-name: flipInX;">
+                    Вызов сантехника БЕСПЛАТНО<br>&nbsp;Быстрый выезд мастера СКИДКИ на следующие заказы
+                </h1>
+                <p class="description-small text-center wow flipInX" data-wow-duration=".7s" data-wow-delay=".2s"
+                   itemprop="description"
+                   style="visibility: visible; animation-duration: 0.7s; animation-delay: 0.2s; animation-name: flipInX;">
+                    Для быстрого вызова сантехника оставьте номер телефона мы перезвоним в
+                    течение минуты или звоните 0 800 750 140, по Украине бесплатно
                 </p>
+                <div class="text-center">
+                        <span class="btn btn-big btn-modal order wow flipInX" data-wow-duration=".9s"
+                              data-wow-delay=".3s"
+                              style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.3s; animation-name: flipInX;">вызвать мастера</span>
+                    <!--<span class="btn btn-big btn-modal comment">Комент</span>-->
+                </div>
+                <div>
+                    <ul class="sub-menu">
+                        <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s"
+                            style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInDown;">
+                            <span class="tooltip" itemprop="additionalProperty">Компетентные сантехники</span>
+                            <svg class="icon icon-services-best-plumbers" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#services-best-plumbers"></use>
+                            </svg>
+                        </li>
+                        <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s"
+                            style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInDown;">
+                            <span class="tooltip" itemprop="additionalProperty">Срочный выезд мастера</span>
+                            <svg class="icon icon-services-quick" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#services-quick"></use>
+                            </svg>
+                        </li>
+                        <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s"
+                            style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInDown;">
+                            <span class="tooltip" itemprop="additionalProperty">Надёжные решения</span>
+                            <svg class="icon icon-services-reliable" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#services-reliable"></use>
+                            </svg>
+                        </li>
+                        <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".7s"
+                            style="visibility: visible; animation-duration: 1s; animation-delay: 0.7s; animation-name: fadeInDown;">
+                            <span class="tooltip" itemprop="additionalProperty">Качественный результат</span>
+                            <svg class="icon icon-services-best_result" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#services-best_result"></use>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <div id="next">
-                <h2>What's next?</h2>
-                <p>
-                    <svg id="icon-book" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-12.5 9 64 64" enable-background="new -12.5 9 64 64" xml:space="preserve">
-                        <path fill="#AAA" d="M6.8,40.8c2.4,0.8,4.5-0.7,4.9-2.5c0.2-1.2-0.3-2.1-1.3-3.2l-0.8-0.8c-0.4-0.5-0.6-1.3-0.2-1.9
-                            c0.4-0.5,0.9-0.8,1.8-0.5c1.3,0.4,1.9,1.3,2.9,2.2c-0.4,1.4-0.7,2.9-0.9,4.2l-0.2,1c-0.7,4-1.3,6.2-2.7,7.5
-                            c-0.3,0.3-0.7,0.5-1.3,0.6c-0.3,0-0.4-0.3-0.4-0.3c0-0.3,0.2-0.3,0.3-0.4c0.2-0.1,0.5-0.3,0.4-0.8c0-0.7-0.6-1.3-1.3-1.3
-                            c-0.6,0-1.4,0.6-1.4,1.7s1,1.9,2.4,1.8c0.8,0,2.5-0.3,4.2-2.5c2-2.5,2.5-5.4,2.9-7.4l0.5-2.8c0.3,0,0.5,0.1,0.8,0.1
-                            c2.4,0.1,3.7-1.3,3.7-2.3c0-0.6-0.3-1.2-0.9-1.2c-0.4,0-0.8,0.3-1,0.8c-0.1,0.6,0.8,1.1,0.1,1.5c-0.5,0.3-1.4,0.6-2.7,0.4l0.3-1.3
-                            c0.5-2.6,1-5.7,3.2-5.8c0.2,0,0.8,0,0.8,0.4c0,0.2,0,0.2-0.2,0.5c-0.2,0.3-0.3,0.4-0.2,0.7c0,0.7,0.5,1.1,1.2,1.1
-                            c0.9,0,1.2-1,1.2-1.4c0-1.2-1.2-1.8-2.6-1.8c-1.5,0.1-2.8,0.9-3.7,2.1c-1.1,1.3-1.8,2.9-2.3,4.5c-0.9-0.8-1.6-1.8-3.1-2.3
-                            c-1.1-0.7-2.3-0.5-3.4,0.3c-0.5,0.4-0.8,1-1,1.6c-0.4,1.5,0.4,2.9,0.8,3.4l0.9,1c0.2,0.2,0.6,0.8,0.4,1.5c-0.3,0.8-1.2,1.3-2.1,1
-                            c-0.4-0.2-1-0.5-0.9-0.9c0.1-0.2,0.2-0.3,0.3-0.5s0.1-0.3,0.1-0.3c0.2-0.6-0.1-1.4-0.7-1.6c-0.6-0.2-1.2,0-1.3,0.8
-                            C4.3,38.4,4.7,40,6.8,40.8z M46.1,20.9c0-4.2-3.2-7.5-7.1-7.5h-3.8C34.8,10.8,32.7,9,30.2,9L-2.3,9.1c-2.8,0.1-4.9,2.4-4.9,5.4
-                            L-7,58.6c0,4.8,8.1,13.9,11.6,14.1l34.7-0.1c3.9,0,7-3.4,7-7.6L46.1,20.9z M-0.3,36.4c0-8.6,6.5-15.6,14.5-15.6
-                            c8,0,14.5,7,14.5,15.6S22.1,52,14.2,52C6.1,52-0.3,45-0.3,36.4z M42.1,65.1c0,1.8-1.5,3.1-3.1,3.1H4.6c-0.7,0-3-1.8-4.5-4.4h30.4
-                            c2.8,0,5-2.4,5-5.4V17.9h3.7c1.6,0,2.9,1.4,2.9,3.1V65.1L42.1,65.1z"/>
-                    </svg>
-
-                    Read the documentation to learn
-                    <a href="https://symfony.com/doc/{{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION')[:3] }}/page_creation.html">
-                        How to create your first page in Symfony
-                    </a>
-                </p>
-            </div>
-
         </div>
-    </div>
+    </section>
+    <!--второй экран-->
+    <section class="container-fluid second-screen bg-gray" id="1">
+        <div class="row">
+            <div class="container">
+                <div class="thumb">
+                    <img itemprop="image"
+                         src="%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0_files/call_to_plumber.jpg"
+                         alt="Быстрый Вызов Мастера Звоните 0 800 750 140">
+                </div>
+                <h2 class="title-medium text-center">Вызов сантехника</h2>
+                <div class="yashare-auto-init b-share_theme_counter" data-yasharel10n="ru"
+                     data-yasharequickservices="facebook,vkontakte,twitter,gplus,odnoklassniki"
+                     data-yasharetheme="counter" data-yasharelink="http://santehnik.pp.ua/"><span
+                            class="b-share"><span class="b-share-btn__wrap"><a rel="nofollow" target="_blank"
+                                                                               title="Facebook"
+                                                                               class="b-share__handle b-share__link b-share-btn__facebook"
+                                                                               href="https://share.yandex.net/go.xml?service=facebook&amp;url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;title=%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0"
+                                                                               data-service="facebook"><span
+                                        class="b-share-icon b-share-icon_facebook"></span><span
+                                        class="b-share-counter"></span></a></span><span class="b-share-btn__wrap"><a
+                                    rel="nofollow" target="_blank" title="ВКонтакте"
+                                    class="b-share__handle b-share__link b-share-btn__vkontakte"
+                                    href="https://share.yandex.net/go.xml?service=vkontakte&amp;url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;title=%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0"
+                                    data-service="vkontakte"><span
+                                        class="b-share-icon b-share-icon_vkontakte"></span><span
+                                        class="b-share-counter"></span></a></span><span class="b-share-btn__wrap"><a
+                                    rel="nofollow" target="_blank" title="Twitter"
+                                    class="b-share__handle b-share__link b-share-btn__twitter"
+                                    href="https://share.yandex.net/go.xml?service=twitter&amp;url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;title=%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0"
+                                    data-service="twitter"><span
+                                        class="b-share-icon b-share-icon_twitter"></span></a></span><span
+                                class="b-share-btn__wrap"><a rel="nofollow" target="_blank" title="Google Plus"
+                                                             class="b-share__handle b-share__link b-share-btn__gplus"
+                                                             href="https://share.yandex.net/go.xml?service=gplus&amp;url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;title=%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0"
+                                                             data-service="gplus"><span
+                                        class="b-share-icon b-share-icon_gplus"></span><span
+                                        class="b-share-counter"></span></a></span><span class="b-share-btn__wrap"><a
+                                    rel="nofollow" target="_blank" title="Одноклассники"
+                                    class="b-share__handle b-share__link b-share-btn__odnoklassniki"
+                                    href="https://share.yandex.net/go.xml?service=odnoklassniki&amp;url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;title=%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0"
+                                    data-service="odnoklassniki"><span
+                                        class="b-share-icon b-share-icon_odnoklassniki"></span><span
+                                        class="b-share-counter"></span></a></span><iframe style="display: none"
+                                                                                          src="//yastatic.net/share/ya-share-cnt.html?url=http%3A%2F%2Fsantehnik.pp.ua%2F&amp;services=facebook,vkontakte,twitter,gplus,odnoklassniki"></iframe></span>
+                </div>
+                <p>
+                    Постоянный процесс использования сантехники приводит к её износу и
+                    поломкам. Сделать самостоятельно получится не всегда, зачастую не
+                    хватает инструмента, квалификации или времени. Именно поэтому у вас
+                    возникает необходимость вызвать сантехника.
+                </p>
+                <p>
+                    Меняется дизайн, форма, содержание, ваши требования к комфорту и
+                    предпочтения в сантехнике. Неизменен лишь правильный подход к
+                    обслуживанию - работу должны делать специалисты, обладающие должными
+                    навыками и квалификацией.
+                </p>
+                <ul class="block-ico-left">
+                    <li class="wow zoomIn" data-wow-duration="2.5s" data-wow-delay=".4s"
+                        style="visibility: hidden; animation-duration: 2.5s; animation-delay: 0.4s; animation-name: none;">
+                        <br>
+                        <svg class="icon icon-check" viewBox="0 0 45.877 45.878">
+                            <use xlink:href="/css/sprite.svg#professional"></use>
+                        </svg>
+                        Выполнять поставленные вами задачи будут опытные, квалифицированные сантехники
+                    </li>
+                </ul>
+                <p>
+                    Вызывая сантехника на дом, в офис или на производство вы получаете
+                    идеальный результат по хорошей цене. Профессиональные мастера быстро и
+                    качественно окажут услуги сантехника.
+                </p>
+                <ul class="info-menu">
+                    <li class="hover-open"></li>
+                    <li>
+                        <div class="info-element wow fadeInRight" data-wow-duration=".1s" data-wow-delay=".5s"
+                             style="visibility: hidden; animation-duration: 0.1s; animation-delay: 0.5s; animation-name: none;">
+                            <svg class="icon help-request" viewBox="0 0 30 30">
+                                <use xlink:href="/css/sprite.svg#help-request"></use>
+                            </svg>
+                            <div class="hover">
+                                Менеджер примет вашу заявку, уточнит адрес и время в которое вам удобно принять
+                                мастера
+                            </div>
+                            <span>1</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-element wow fadeInRight" data-wow-duration=".3s" data-wow-delay=".7s"
+                             style="visibility: hidden; animation-duration: 0.3s; animation-delay: 0.7s; animation-name: none;">
+                            <svg class="icon help-fast" viewBox="0 0 30 30">
+                                <use xlink:href="/css/sprite.svg#help-fast"></use>
+                            </svg>
+                            <div class="hover">
+                                Сантехник вовремя прибудет по указанному вами адресу для выполнения поставленных
+                                задач
+                            </div>
+                            <span>2</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-element wow fadeInRight" data-wow-duration=".5s" data-wow-delay=".9s"
+                             style="visibility: hidden; animation-duration: 0.5s; animation-delay: 0.9s; animation-name: none;">
+                            <svg class="icon help-working" viewBox="0 0 30 30">
+                                <use xlink:href="/css/sprite.svg#help-working"></use>
+                            </svg>
+                            <div class="hover">
+                                Наши специалисты качественно выполнят все необходимые работы согласно вашим
+                                пожеланиям
+                            </div>
+                            <span>3</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info-element wow fadeInRight" data-wow-duration=".7s" data-wow-delay="1.1s"
+                             style="visibility: hidden; animation-duration: 0.7s; animation-delay: 1.1s; animation-name: none;">
+                            <svg class="icon help-payment" viewBox="0 0 30 30">
+                                <use xlink:href="/css/sprite.svg#help-payment"></use>
+                            </svg>
+                            <div class="hover">
+                                Оплата производится по факту выполненых работ Вы получите гарантийный талон и скидку
+                                на следующий вызов
+                            </div>
+                            <span>4</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2 class="title-medium text-center">Наши выгоды</h2>
+                <p>На данный момент действуют следущие выгодные условия:</p>
+                <ul class="block-ico-left">
+                    <li class="wow flipInX" data-wow-duration="2.5s" data-wow-delay=".1s"
+                        style="visibility: visible; animation-duration: 2.5s; animation-delay: 0.1s; animation-name: flipInX;">
+                        <svg class="icon icon-check" viewBox="0 0 296.41 296.41">
+                            <use xlink:href="/css/sprite.svg#discount"></use>
+                        </svg>
+                        Пенсионерам и социально не защищённым группам населения предоставим скидку
+                    </li>
+                </ul>
+                <p>Пенсионерам, инвалидам, ветеранам, студентам, многодетным семьям и
+                    малообеспеченным гражданам предоставляем небольшую скидку на самые
+                    востребованные сантехуслуги.
+                </p><br>
+                <ul class="block-ico-left">
+                    <li class="wow flipInX" data-wow-duration="2.4s" data-wow-delay=".2s"
+                        style="visibility: visible; animation-duration: 2.4s; animation-delay: 0.2s; animation-name: flipInX;">
+                        <svg class="icon icon-check" viewBox="0 0 268.733 268.733">
+                            <use xlink:href="/css/sprite.svg#discountsoc"></use>
+                        </svg>
+                        У наших подписчиков в соцсетях персональная скидка 5%, для бесплатной консультации пишите ЛС
+                        администратору
+                    </li>
+                </ul>
+                <p>Снизим цены на 5% подписчикам и участникам групп в соцсетях. Чтобы
+                    оставить заявку на бесплатную консультацию и получить скидку на
+                    сантехуслуги в, пишите администратору наших страничек.
+                </p><br>
+                <ul class="block-ico-left">
+                    <li class="wow flipInX" data-wow-duration="2.3s" data-wow-delay=".3s"
+                        style="visibility: hidden; animation-duration: 2.3s; animation-delay: 0.3s; animation-name: none;">
+                        <svg class="icon icon-check" viewBox="0 0 229.5 229.5">
+                            <use xlink:href="/css/sprite.svg#guarantee"></use>
+                        </svg>
+                        Вы получите гарантию на выполненые работы. Срок гарантии, в зависимости от использованных
+                        материалов, до 5 лет
+                    </li>
+                </ul>
+                <p>Абсолютно все клиенты нашей компании получают гарантию до 5 лет.
+                    Точный срок гарантии определяется персонально, он зависит от сложности
+                    работ и используемых материалов.
+                </p><br>
+                <ul class="block-ico-left">
+                    <li class="wow flipInX" data-wow-duration="2.2s" data-wow-delay=".4s"
+                        style="visibility: hidden; animation-duration: 2.2s; animation-delay: 0.4s; animation-name: none;">
+                        <svg class="icon icon-check" viewBox="0 0 297 297">
+                            <use xlink:href="/css/sprite.svg#deed"></use>
+                        </svg>
+                        Выданый сантехником гарантийный талон даёт право на скидку вам или вашим друзьям
+                    </li>
+                </ul>
+                <p>Выгодно отремонтировали сантехнику и получили от представителя
+                    компании гарантийный талон? Знайте, что он дает право на последующую
+                    скидку. Предоставьте его при очередном вызове сантехника. Смело делитесь
+                    скидкой на услуги сантехника со своими родственниками или друзьями.
+                </p><br>
+            </div>
+        </div>
+    </section>
+    <!--объекты-->
+    <section class="container-fluid info-object-screen">
+        <div class="row">
+            <div class="container home">
+                <div class="thumb">
+                    <img src="%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0_files/home.jpg"
+                         alt="Жылые объекты">
+                    <h5>Жилые объекты</h5>
+                </div>
+                <ul class="block-ico-left">
+                    <li>
+                        <svg class="icon icon-house" viewBox="0 0 32 32">
+                            <use xlink:href="/css/sprite.svg#phouse"></use>
+                        </svg>
+                        В частных домах оказываем сантехуслуги любой сложности. Не откладывайте
+                        решение проблем – сразу звоните нам. Мы быстро и качественно выполним
+                        все необходимые ремонтные работы. Обращайтесь!
+                    </li>
+                    <li>
+                        <svg class="icon icon-house" viewBox="0 0 32 32">
+                            <use xlink:href="/css/sprite.svg#building"></use>
+                        </svg>
+                        В квартире услуги сантехника могут понадобиться в любой момент. Как и
+                        все жилые объекты со временем требуются ремонтно-востановительные
+                        работы. Главное вовремя обратиться к квалифицированным специалистам.
+                    </li>
+                </ul>
+            </div>
+            <div class="container work">
+                <div class="thumb">
+                    <h5>Коммерческие объекты</h5>
+                    <img src="%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0_files/work.jpg"
+                         alt="Коммерчиские объекты">
+                </div>
+                <ul class="block-ico-left">
+                    <li>
+                        <svg class="icon icon-house" viewBox="0 0 32 32">
+                            <use xlink:href="/css/sprite.svg#tradebuild"></use>
+                        </svg>
+                        Берём на постоянное обслуживание коммерческие объкеты любой сферы
+                        деятельности. Подписав с нами договор вы будете уверены в быстром
+                        решении проблем мешающих оптимальной жизнедеятельности офиса или
+                        предприятия.
+                    </li>
+                    <li>
+                        <svg class="icon icon-house" viewBox="0 0 32 32">
+                            <use xlink:href="/css/sprite.svg#combuild"></use>
+                        </svg>
+                        Один из важнейших факторов слаженной работы коммерческого предприятия –
+                        надежно функционирующая сантехника и связанные с ней системы. Мы
+                        оказываем услуги для предприятий любого типа – кафе, баров, ресторанов,
+                        офисов и банков.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--услуги-->
+    <section class="container-fluid services-screen bg-gray" id="2">
+        <div class="row">
+            <h3>Наши услуги:</h3>
+            <div class="container">
+                <ul class="block-ico-left">
+                    <li>
+                        <a href="http://santehnik.pp.ua/sewer_installation.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-sewerage"></use>
+                            </svg>
+                            <span>Разводка канализации, ремонт канализационных систем, стояков</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/cleaning_the_sewage.html">
+                            <svg class="icon" viewBox="0 0 40 35">
+                                <use xlink:href="/css/sprite.svg#work-prochistka"></use>
+                            </svg>
+                            <span>Прочистка канализации</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/boiler.html">
+                            <svg class="icon" viewBox="0 0 63.904 63.904">
+                                <use xlink:href="/css/sprite.svg#work-boiler"></use>
+                            </svg>
+                            <span>Установка бойлера, перенос, демонтаж, ремнот, чистка</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/toilet.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-toilet_bidet"></use>
+                            </svg>
+                            <span>Унитаз, биде, инсталяция. Установка, замена, ремонт</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/water.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-water_pape"></use>
+                            </svg>
+                            <span>Разводка труб, замена, ремонт стояков водопровода</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/water_tap.html">
+                            <svg class="icon" viewBox="0 0 55.782 55.781">
+                                <use xlink:href="/css/sprite.svg#work-water_tap"></use>
+                            </svg>
+                            <span>Установка, замена и ремонт смесителей</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/water_filter.html">
+                            <svg class="icon" viewBox="0 0 43.922 43.921">
+                                <use xlink:href="/css/sprite.svg#work-filter"></use>
+                            </svg>
+                            <span>Установка, замена и профилактика фильтров очистки воды</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <ul class="block-ico-left">
+                    <li>
+                        <a href="http://santehnik.pp.ua/shower.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-shower"></use>
+                            </svg>
+                            <span>Сборка, подключение и ремонт душевой кабины, бокса, джакузи</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/heated_towel_rail.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-heated_towel_rail"></use>
+                            </svg>
+                            <span>Монтаж полотенцесушителя, перенос, демонтаж</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/bathtub.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-bath"></use>
+                            </svg>
+                            <span>Установка ванн, демонтаж, замена, обустройство</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/heating.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-heating"></use>
+                            </svg>
+                            <span>Монтаж систем отопления, ремонт, установка радиаторов</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/washer.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-washer"></use>
+                            </svg>
+                            <span>Установка стиральных, посудомоечных машин, ремонт</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/solid_fuel_boiler_gas.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-ttheater"></use>
+                            </svg>
+                            <span>Монтаж твердотопливных, газовых котлов отопления</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://santehnik.pp.ua/warm_floor.html">
+                            <svg class="icon" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#work-hotfloor"></use>
+                            </svg>
+                            <span>Установка тёплого пола</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--контакты-->
+    <section class="container-fluid contact-screen" id="4">
+        <div class="row">
+            <h3>Контакты</h3>
+            <div class="container">
+                <ul class="city-drop-list">
+                    <li itemprop="containedInPlace"><h5>Украина</h5></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/vinnica/">Винница</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/dnepropetrovsk/">Днепропетровск</a>
+                    </li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/zaporozhie/">Запорожье</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/kiev/">Киев</a></li>
+                </ul>
+                <ul class="city-drop-list">
+                    <li>&nbsp;</li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/nikolaev/">Николаев</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/odessa/">Одесса</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/poltava/">Полтава</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/sumy/">Сумы</a></li>
+                    <li itemprop="serviceArea"><a href="http://santehnik.pp.ua/kharkov/">Харьков</a></li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="master-to-home clearfix">
+                    <div class="left-block">
+                        <p class="text-center day-of-work">
+                            Работаем:<br>
+                            <strong>
+                                <time itemprop="openingHours" datetime="Пн,Вт,Ср,Чт,Пт,Сб,Вс 07:00-21:00">ежедневно
+                                    с 7:00 до 21:00
+                                </time>
+                            </strong>
+                        </p>
+                        <p class="text-center order-text">
+                            Принимаем к оплате:<br>
+                            <strong itemprop="paymentAccepted">Наличные, кредитные карты, электронные
+                                деньги</strong>
+                        </p>
+                    </div>
+                    <div class="right-block text-right">
+                        <a href="tel:0800750140">
+                            <p class="text-center">
+                                Быстрый вызов мастера<br>
+                                <b>Звоните</b><br>
+                                <span>0 800 750 140</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="soc-title">Мы в соцсетях:</div>
+                <ul class="social-menu">
+                    <link itemprop="url" href="http://santehnik.pp.ua/">
+                    <li>
+                        <a href="https://plus.google.com/u/0/communities/108535282951484985384" target="_blank"
+                           itemprop="sameAs" content="g+">
+                            <svg class="icon soc-google" viewBox="0 0 40 32">
+                                <use xlink:href="/css/sprite.svg#soc-google"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://vk.com/santehnik_pp_ua" target="_blank" itemprop="sameAs" content="vk">
+                            <svg class="icon soc-vk" viewBox="0 0 44 32">
+                                <use xlink:href="/css/sprite.svg#soc-vk"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/groups/545185275651440/" target="_blank" itemprop="sameAs"
+                           content="fb">
+                            <svg class="icon soc-fb" viewBox="0 0 16 32">
+                                <use xlink:href="/css/sprite.svg#soc-fb"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/santehnik_UA" target="_blank" itemprop="sameAs"
+                           content="Twitter">
+                            <svg class="icon soc-tw" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#soc-twi"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://ok.ru/group/57786949435446" target="_blank" itemprop="sameAs" content="ok">
+                            <svg class="icon soc-ok" viewBox="0 0 32 32">
+                                <use xlink:href="/css/sprite.svg#soc-ok"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div id="blockajax"><p class="random-text">
+
+                    </p></div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

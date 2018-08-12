@@ -6,10 +6,11 @@ lunetics_locale:
       - uk
 
     guessing_order:
-      - cookie
-      - browser
       - query
       - router
+      - session
+      - cookie
+      - browser
 
     cookie:
         set_on_change: true
