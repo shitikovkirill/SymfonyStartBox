@@ -19,3 +19,6 @@ fos_user:
     prefix: /{_locale}
     requirements:
         _locale: ru|uk
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
