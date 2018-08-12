@@ -9,6 +9,7 @@ imports:
     - { resource: bundle/menu.yml }
     - { resource: bundle/uploader.yml }
     - { resource: bundle/locale.yml }
+    - { resource: bundle/image.yml }
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
@@ -17,7 +18,7 @@ parameters:
     locale: ru
 
 framework:
-    #esi: ~
+    default_locale: '%locale%'
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
@@ -29,7 +30,6 @@ framework:
     #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
-    default_locale: '%locale%'
     trusted_hosts: ~
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id

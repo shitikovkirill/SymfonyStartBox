@@ -1,5 +1,6 @@
 <?php
 namespace AppBundle\EventListener;
+
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -16,6 +17,7 @@ class LocaleRewriteListener implements EventSubscriberInterface
      * @var routeCollection \Symfony\Component\Routing\RouteCollection
      */
     private $routeCollection;
+
     /**
      * @var array
      */
@@ -24,17 +26,21 @@ class LocaleRewriteListener implements EventSubscriberInterface
     /**
      * LocaleRewriteListener constructor.
      *
-     * @param RouterInterface $router
-     * @param array $supportedLocales
+     * @param RouterInterface $router           Router
+     * @param array           $supportedLocales Supported locales
      */
-    public function __construct(RouterInterface $router, array $supportedLocales = array('en'))
-    {
+    public function __construct(
+        RouterInterface $router,
+        array $supportedLocales = array('en')
+    ) {
         $this->routeCollection = $router->getRouteCollection();
         $this->supportedLocales = $supportedLocales;
     }
 
     /**
-     * @param $locale
+     * Check that locale supported
+     *
+     * @param string $locale Locale
      *
      * @return bool
      */
@@ -44,7 +50,11 @@ class LocaleRewriteListener implements EventSubscriberInterface
     }
 
     /**
-     * @param GetResponseEvent $event
+     * Redirect if rout do not contain lang
+     *
+     * @param GetResponseEvent $event Event
+     *
+     * @return void
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
@@ -67,6 +77,12 @@ class LocaleRewriteListener implements EventSubscriberInterface
             $event->setResponse(new RedirectResponse("/" . $locale . $path));
         }
     }
+
+    /**
+     * Subscribe to Event
+     *
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return array(

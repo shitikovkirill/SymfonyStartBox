@@ -6,7 +6,6 @@ lunetics_locale:
       - uk
 
     guessing_order:
-      - session
       - cookie
       - browser
       - query
