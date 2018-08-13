@@ -29,3 +29,9 @@ ibrows_sonata_translation:
         type: textarea		 # Type of input. Can be text|textarea|select|date|checklist and more
         emptytext: Empty 	 # text to display on empty translations
         placement: top
+
+a2lix_translation_form:
+    locale_provider: default
+    locales: [ru,uk]
+    default_locale: ru
+    required_locales: [ru,uk]

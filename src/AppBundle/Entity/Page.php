@@ -2,7 +2,12 @@
 
 namespace AppBundle\Entity;
 
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\Validator\Constraints as Assert;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Page
@@ -12,6 +17,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Page
 {
+    use ORMBehaviors\Timestampable\Timestampable,
+        ORMBehaviors\Translatable\Translatable;
+
+
     /**
      * @var int
      *
@@ -31,17 +40,28 @@ class Page
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="top_image", type="text")
      */
-    private $title;
+    private $topImage;
+
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
+     * @Assert\Valid
      */
-    private $description;
+    protected $translations;
 
+    public function __call($method, $arguments)
+    {
+        return PropertyAccess::createPropertyAccessor()->getValue($this->translate(), $method);
+    }
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -75,53 +95,5 @@ class Page
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set title.
-     *
-     * @param string $title
-     *
-     * @return Page
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title.
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return Page
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description.
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 }

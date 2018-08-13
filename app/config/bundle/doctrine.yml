@@ -20,12 +20,5 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
-stof_doctrine_extensions:
-    default_locale: "%locale%"
-    orm:
-        default:
-            timestampable: true
-            blameable: true
-            translatable: true
-            loggable: true
-            softdeleteable: true
+knp_doctrine_behaviors:
+    translatable: true

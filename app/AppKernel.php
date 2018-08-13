@@ -28,7 +28,9 @@ class AppKernel extends Kernel
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
             new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
             new Ibrows\SonataTranslationBundle\IbrowsSonataTranslationBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
             new AppBundle\AppBundle(),
         ];

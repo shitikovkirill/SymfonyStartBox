@@ -27,11 +27,13 @@
     ],
     "require": {
         "php": ">=5.5.9",
+        "a2lix/translation-form-bundle": "^3.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0",
         "ibrows/sonata-translation-bundle": "dev-fix-compatible-form",
         "incenteev/composer-parameter-handler": "^2.0",
+        "knplabs/doctrine-behaviors": "^1.5",
         "lexik/translation-bundle": "^4.0",
         "liip/imagine-bundle": "^2.1",
         "lunetics/locale-bundle": "^2.6",
