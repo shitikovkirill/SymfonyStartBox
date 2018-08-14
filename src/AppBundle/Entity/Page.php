@@ -96,4 +96,20 @@ class Page
     {
         return $this->slug;
     }
+
+    /**
+     * @return string
+     */
+    public function getTopImage(): ?string
+    {
+        return $this->topImage;
+    }
+
+    /**
+     * @param string $topImage
+     */
+    public function setTopImage(string $topImage): void
+    {
+        $this->topImage = $topImage;
+    }
 }

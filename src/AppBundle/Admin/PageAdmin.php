@@ -21,20 +21,15 @@ class PageAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('slug')
-            ->add('_action', null, [
-                'actions' => [
-                    'show' => [],
-                    'edit' => [],
-                    'delete' => [],
-                ],
-            ]);
+            ->addIdentifier('slug')
+            ->add('description');
     }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('slug')
+            ->add('topImage')
             ->add(
                 'translations',
                 TranslationsType::class
