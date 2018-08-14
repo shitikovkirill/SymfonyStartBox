@@ -16,6 +16,7 @@ lunetics_locale:
         set_on_change: true
 
     switcher:
+        template: locale/switcher.html.twig
         show_current_locale: true
 
 lexik_translation:
