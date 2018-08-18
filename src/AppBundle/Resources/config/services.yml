@@ -22,9 +22,25 @@ services:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Privilege, show_in_dashboard: false }
         public: false
 
+    app.admin.second_section:
+        class: AppBundle\Admin\SecondSectionAdmin
+        arguments: [~, AppBundle\Entity\SecondSection, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: SecondSection }
+        public: true
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
 
     app.block.service.main:
         class: AppBundle\Block\MainBlock
+        arguments:
+            - ~
+            - '@templating.engine.twig'
+        tags:
+            - { name: sonata.block }
+
+    app.block.service.sections:
+        class: AppBundle\Block\SectionsBlock
         arguments:
             - ~
             - '@templating.engine.twig'

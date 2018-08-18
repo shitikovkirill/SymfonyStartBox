@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
@@ -72,9 +73,19 @@ class PageAdmin extends AbstractAdmin
                 )
             ->end()
             ->end()
-            ->tab('Main')
+            ->tab('SecondSection')
             ->with('')
-
+                ->add(
+                    'secondSections',
+                    'sonata_type_model',
+                    array(
+                        'btn_add'       => 'Add',
+                        'btn_list'      => 'List',
+                        'btn_delete'    => 'Delete',
+                        'btn_catalogue' => 'Catalog',
+                        'multiple'      => true,
+                    )
+                )
             ->end()
             ->end()
         ;

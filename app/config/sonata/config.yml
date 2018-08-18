@@ -5,6 +5,7 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
         app.block.service.main: ~
+        app.block.service.sections: ~
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'

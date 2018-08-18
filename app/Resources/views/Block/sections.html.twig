@@ -1,0 +1,24 @@
+<!--второй экран-->
+{% if sections %}
+<section class="container-fluid second-screen bg-gray" id="1">
+    <div class="row">
+        {% for section in sections %}
+            <div class="container">
+                {% if section.image %}
+                    <div class="thumb">
+                        <img itemprop="image"
+                             src="/images/{{ section.image }}"
+                             alt="{{ section.title }}">
+                    </div>
+                {% endif %}
+
+                <h2 class="title-medium text-center">{{ section.title }}</h2>
+                {{ section.description }}
+                {% if section.privileges %}
+                    {% include('Block/parts/info-menu.html.twig') with {'privileges': section.privileges} %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

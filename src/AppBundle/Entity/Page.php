@@ -41,16 +41,6 @@ class Page
     private $slug;
 
     /**
-     * Many Pages have Many Privileges.
-     * @ORM\ManyToMany(targetEntity="Privilege", cascade={"persist"})
-     * @ORM\JoinTable(name="pages_privileges",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="privilege_id", referencedColumnName="id")}
-     *      )
-     */
-    private $privileges;
-
-    /**
      *
      * @Vich\UploadableField(mapping="my_image", fileNameProperty="topImage")
      *
@@ -73,6 +63,26 @@ class Page
     private $updatedAt;
 
     /**
+     * Many Pages have Many Privileges.
+     * @ORM\ManyToMany(targetEntity="Privilege", cascade={"persist"})
+     * @ORM\JoinTable(name="pages_privileges",
+     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="privilege_id", referencedColumnName="id")}
+     *      )
+     */
+    private $privileges;
+
+    /**
+     * Many Pages have Many SecondSections.
+     * @ORM\ManyToMany(targetEntity="SecondSection", cascade={"persist"})
+     * @ORM\JoinTable(name="pages_second_sections",
+     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="second_section_id", referencedColumnName="id")}
+     *      )
+     */
+    private $secondSections;
+
+    /**
      * @Assert\Valid
      */
     protected $translations;
@@ -89,6 +99,7 @@ class Page
     {
         $this->translations = new ArrayCollection();
         $this->privileges = new ArrayCollection();
+        $this->secondSections = new ArrayCollection();
     }
 
     /**
@@ -183,6 +194,30 @@ class Page
     public function addPrivilege(Privilege $privilege)
     {
         $this->privileges->add($privilege);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSecondSections()
+    {
+        return $this->secondSections;
+    }
+
+    /**
+     * @param mixed $secondSections
+     */
+    public function setSecondSections($secondSections): void
+    {
+        $this->secondSections = $secondSections;
+    }
+
+    /**
+     * @param SecondSection $secondSection
+     */
+    public function addSecondSection(SecondSection $secondSection): void
+    {
+        $this->secondSections->add($secondSection);
     }
 
     /**

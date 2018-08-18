@@ -27,6 +27,10 @@ class PrivilegeAdmin extends AbstractAdmin
                         'Icon 2' => 'services-quick',
                         'Icon 3' => 'services-reliable',
                         'Icon 4' => 'services-best_result',
+                        'Icon 5' => 'help-request',
+                        'Icon 6' => 'help-fast',
+                        'Icon 7' => 'help-working',
+                        'Icon 8' => 'help-payment',
                     ))
             )
         ;
