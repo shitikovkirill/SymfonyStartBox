@@ -8,17 +8,20 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Validator\Constraints as Assert;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Page
  *
  * @ORM\Table(name="page")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ *
+ * @Vich\Uploadable()
  */
 class Page
 {
-    use ORMBehaviors\Timestampable\Timestampable,
-        ORMBehaviors\Translatable\Translatable;
+    use ORMBehaviors\Translatable\Translatable;
 
 
     /**
@@ -38,12 +41,26 @@ class Page
     private $slug;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="top_image", type="text")
+     * @Vich\UploadableField(mapping="my_image", fileNameProperty="topImage")
+     *
+     * @var File
+     */
+    private $topImageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
      */
     private $topImage;
 
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @Assert\Valid
@@ -108,8 +125,36 @@ class Page
     /**
      * @param string $topImage
      */
-    public function setTopImage(string $topImage): void
+    public function setTopImage(?string $topImage): void
     {
         $this->topImage = $topImage;
+    }
+
+    /**
+     * @return File
+     */
+    public function getTopImageFile(): ?File
+    {
+        return $this->topImageFile;
+    }
+
+    /**
+     * @param File $topImageFile
+     */
+    public function setTopImageFile(File $topImageFile): void
+    {
+        $this->topImageFile = $topImageFile;
+
+        if (null !== $topImageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->slug??'';
     }
 }

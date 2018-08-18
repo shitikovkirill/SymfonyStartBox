@@ -24,6 +24,11 @@ class PageTranslation
      */
     protected $description;
 
+    /**
+     * @ORM\Column(nullable=true)
+     */
+    protected $button;
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -44,5 +49,26 @@ class PageTranslation
     {
         $this->description = $description;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getButton()
+    {
+        return $this->button;
+    }
+
+    /**
+     * @param mixed $button
+     */
+    public function setButton($button): void
+    {
+        $this->button = $button;
+    }
+
+    public function __toString()
+    {
+        return $this->title ?? '';
     }
 }
