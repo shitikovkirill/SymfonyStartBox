@@ -15,8 +15,15 @@ services:
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
 
+    app.admin.privilege:
+        class: AppBundle\Admin\PrivilegeAdmin
+        arguments: [~, AppBundle\Entity\Privilege, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Privilege }
+        public: false
 
-    sonata.block.service.main:
+
+    app.block.service.main:
         class: AppBundle\Block\MainBlock
         arguments:
             - ~

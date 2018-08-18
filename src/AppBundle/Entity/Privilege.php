@@ -28,6 +28,13 @@ class Privilege
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $icon;
+
+    /**
      * @Assert\Valid
      */
     protected $translations;
@@ -43,5 +50,37 @@ class Privilege
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param string $icon
+     */
+    public function setIcon(string $icon): void
+    {
+        $this->icon = $icon;
+    }
+
+    /**
+     * @return int|string
+     */
+    public function __toString()
+    {
+        return $this->id ?? '';
     }
 }

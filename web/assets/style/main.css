@@ -274,7 +274,6 @@ input.coun{background-color:#f1f1f1;width:100%;text-align:center;height:100%;-mo
 section{position:relative;z-index:50;float:left;background:#fff;width:100%}
 section::after,section::before{content:" ";display:table;clear:both}
 section[class*="first-"]{background-size:cover;background-repeat:no-repeat;background-color:transparent;background-position:center top;display:-webkit-flex;display:-ms-flexbox;display:flex;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:table;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;margin:auto;position:fixed;z-index:10;width:100%;height:100vh;height:100%}
-section.first-1{background-image:url(../img/wrench-mob.jpg)}
 section.first-2{background-image:url(../img/sewer_installation.jpg)}
 section.first-3{background-image:url(../img/bl-mob.jpg)}
 section.first-4{background-image:url(../img/filter.jpg)}
@@ -457,7 +456,6 @@ h2{font-size:20px;color:#323232;letter-spacing:-.05em;padding:10px 0 15px;font-w
 .nav-bar>li:nth-child(1),.nav-bar>li:nth-child(2),.nav-bar>li:nth-child(3){width:33.333%}
 .menu-button{display:none}
 .menu{display:block;text-shadow:0 3px 5px rgba(0,0,0,.7);font-weight:200}
-section.first-1{background-image:url(../img/wrench__desktop.jpg);background-position:left top}
 section.first-2{background-image:url(../img/sewer_installation.jpg);background-position:left top}
 section.first-3{background-image:url(../img/bl-desck.jpg);background-position:left top}
 section.first-4{background-image:url(../img/filter.jpg);background-position:left top}
@@ -496,7 +494,6 @@ h1{font-size:38px;line-height:1}
 input.coun{font-size:5.2rem}
 input.coun2{font-size:2.2rem;background-color:#7d8ac4}
 .phone-block span{font-size:13px}
-section.first-1{background-image:url(../img/wrench__desktop.jpg);background-position:center top}
 section.first-2{background-image:url(../img/sewer_installation.jpg);background-position:center top}
 section.first-3{background-image:url(../img/bl-desck.jpg);background-position:center top}
 section.first-4{background-image:url(../img/filter.jpg);background-position:center top}

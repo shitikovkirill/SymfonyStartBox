@@ -49,12 +49,35 @@ class PageAdmin extends AbstractAdmin
         }
 
         $formMapper
-            ->add('slug')
-            ->add('topImageFile', 'file', $imageFieldOptions)
-            ->add(
-                'translations',
-                TranslationsType::class
-            );
+            ->tab('Main')
+            ->with('')
+                ->add('slug')
+                ->add('topImageFile', 'file', $imageFieldOptions)
+                ->add(
+                    'translations',
+                    TranslationsType::class
+                )
+                ->add('privileges',
+                    'sonata_type_collection',
+                    array(
+                        'type_options' => array(
+                            'delete' => true,
+                        )
+                    ),
+                    array(
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'position',
+                    )
+                )
+            ->end()
+            ->end()
+            ->tab('Main')
+            ->with('')
+
+            ->end()
+            ->end()
+        ;
     }
 
     protected function configureShowFields(ShowMapper $showMapper)

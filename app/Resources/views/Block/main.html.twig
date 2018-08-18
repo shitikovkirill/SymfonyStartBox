@@ -1,5 +1,6 @@
 <!--главный экран-->
-<section class="container-fluid first-1">
+<section class="container-fluid first-1"
+         {% if page.topImage %}style="background-image: url(http:/images/{{ page.topImage }});"{% endif %}>
     <div class="center-content">
         <div class="container">
             <h1 class="wow flipInX" data-wow-duration="1.1s" data-wow-delay=".1s"
@@ -12,45 +13,16 @@
                 {{ page.description|raw }}
             </p>
             {% if page.button %}
-            <div class="text-center">
+                <div class="text-center">
                         <span class="btn btn-big btn-modal order wow flipInX" data-wow-duration=".9s"
                               data-wow-delay=".3s"
                               style="visibility: visible; animation-duration: 0.9s; animation-delay: 0.3s; animation-name: flipInX;">{{ page.button }}</span>
-                <!--<span class="btn btn-big btn-modal comment">Комент</span>-->
-            </div>
+                </div>
             {% endif %}
-            <div>
-                <ul class="sub-menu">
-                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s"
-                        style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInDown;">
-                        <span class="tooltip" itemprop="additionalProperty">Компетентные сантехники</span>
-                        <svg class="icon icon-services-best-plumbers" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#services-best-plumbers"></use>
-                        </svg>
-                    </li>
-                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s"
-                        style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInDown;">
-                        <span class="tooltip" itemprop="additionalProperty">Срочный выезд мастера</span>
-                        <svg class="icon icon-services-quick" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#services-quick"></use>
-                        </svg>
-                    </li>
-                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s"
-                        style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInDown;">
-                        <span class="tooltip" itemprop="additionalProperty">Надёжные решения</span>
-                        <svg class="icon icon-services-reliable" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#services-reliable"></use>
-                        </svg>
-                    </li>
-                    <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".7s"
-                        style="visibility: visible; animation-duration: 1s; animation-delay: 0.7s; animation-name: fadeInDown;">
-                        <span class="tooltip" itemprop="additionalProperty">Качественный результат</span>
-                        <svg class="icon icon-services-best_result" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#services-best_result"></use>
-                        </svg>
-                    </li>
-                </ul>
-            </div>
+
+            {% if page.privileges %}
+                {% include('Block/parts/main-sub-menu.html.twig') with {'privileges': page.privileges} %}
+            {% endif %}
         </div>
     </div>
 </section>

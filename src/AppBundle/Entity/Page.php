@@ -41,6 +41,16 @@ class Page
     private $slug;
 
     /**
+     * Many Pages have Many Privileges.
+     * @ORM\ManyToMany(targetEntity="Privilege", cascade={"persist"})
+     * @ORM\JoinTable(name="pages_privileges",
+     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="privilege_id", referencedColumnName="id")}
+     *      )
+     */
+    private $privileges;
+
+    /**
      *
      * @Vich\UploadableField(mapping="my_image", fileNameProperty="topImage")
      *
@@ -78,6 +88,7 @@ class Page
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+        $this->privileges = new ArrayCollection();
     }
 
     /**
@@ -151,10 +162,34 @@ class Page
     }
 
     /**
+     * @return mixed
+     */
+    public function getPrivileges()
+    {
+        return $this->privileges;
+    }
+
+    /**
+     * @param mixed $privileges
+     */
+    public function setPrivileges($privileges): void
+    {
+        $this->privileges = $privileges;
+    }
+
+    /**
+     * @param Privilege $privilege
+     */
+    public function addPrivilege(Privilege $privilege)
+    {
+        $this->privileges->add($privilege);
+    }
+
+    /**
      * @return string
      */
     public function __toString()
     {
-        return $this->slug??'';
+        return $this->slug ?? '';
     }
 }
