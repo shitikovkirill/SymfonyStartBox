@@ -16,6 +16,10 @@ class MainBlock extends AbstractBlockService
     {
         $settings = $blockContext->getSettings();
 
+        if(empty($settings['page'])){
+            return $this->renderResponse('Block/empty-content.html.twig');
+        }
+
         return $this->renderResponse(
           $blockContext->getTemplate(),
           [
