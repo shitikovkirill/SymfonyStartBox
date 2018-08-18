@@ -4,7 +4,7 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
-        sonata.block.service.main: ~
+        app.block.service.main: ~
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
