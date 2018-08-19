@@ -34,7 +34,7 @@ class SectionsBlock extends AbstractBlockService
     {
         $resolver->setDefaults([
             'sections' => null,
-            'template' => 'Block/sections.html.twig',
+            'template' => 'Block/empty-content.html.twig',
         ]);
     }
 }

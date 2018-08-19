@@ -49,14 +49,7 @@ class PageAdmin extends AbstractAdmin
             $imageFieldOptions['help'] = '<img src="'.$path.'" class="admin-preview" style="max-width: 300px"/>';
         }
 
-        $iconsOptions = array(
-            'edit' => 'inline',
-            'inline' => 'table',
-            'sortable' => 'position',
-            'help' => '',
-        );
-
-        $iconsOptions['help'] = PrivilegeAdmin::getIcons();
+        $iconsOptionsHelp = PrivilegeAdmin::getIcons();
 
         $formMapper
             ->tab('Main')
@@ -74,7 +67,12 @@ class PageAdmin extends AbstractAdmin
                             'delete' => true,
                         )
                     ),
-                    $iconsOptions
+                    array(
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'position',
+                        'help' => $iconsOptionsHelp,
+                    )
                 )
             ->end()
             ->end()
@@ -91,6 +89,21 @@ class PageAdmin extends AbstractAdmin
                         'multiple'      => true,
                     )
                 )
+            ->end()
+            ->end()
+            ->tab('ThirdSection')
+            ->with('')
+            ->add(
+                'thirdSections',
+                'sonata_type_model',
+                array(
+                    'btn_add'       => 'Add',
+                    'btn_list'      => 'List',
+                    'btn_delete'    => 'Delete',
+                    'btn_catalogue' => 'Catalog',
+                    'multiple'      => true,
+                )
+            )
             ->end()
             ->end()
         ;

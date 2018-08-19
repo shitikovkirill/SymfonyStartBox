@@ -4,65 +4,10 @@
 
     {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page}) }}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.secondSections}) }}
+    {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.secondSections, 'template': 'Block/second-sections.html.twig'}) }}
 
-    <!--объекты-->
-    <section class="container-fluid info-object-screen">
-        <div class="row">
-            <div class="container home">
-                <div class="thumb">
-                    <img src="%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0_files/home.jpg"
-                         alt="Жылые объекты">
-                    <h5>Жилые объекты</h5>
-                </div>
-                <ul class="block-ico-left">
-                    <li>
-                        <svg class="icon icon-house" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#phouse"></use>
-                        </svg>
-                        В частных домах оказываем сантехуслуги любой сложности. Не откладывайте
-                        решение проблем – сразу звоните нам. Мы быстро и качественно выполним
-                        все необходимые ремонтные работы. Обращайтесь!
-                    </li>
-                    <li>
-                        <svg class="icon icon-house" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#building"></use>
-                        </svg>
-                        В квартире услуги сантехника могут понадобиться в любой момент. Как и
-                        все жилые объекты со временем требуются ремонтно-востановительные
-                        работы. Главное вовремя обратиться к квалифицированным специалистам.
-                    </li>
-                </ul>
-            </div>
-            <div class="container work">
-                <div class="thumb">
-                    <h5>Коммерческие объекты</h5>
-                    <img src="%D0%92%D1%8B%D0%B7%D0%BE%D0%B2%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%20%D1%81%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B0_files/work.jpg"
-                         alt="Коммерчиские объекты">
-                </div>
-                <ul class="block-ico-left">
-                    <li>
-                        <svg class="icon icon-house" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#tradebuild"></use>
-                        </svg>
-                        Берём на постоянное обслуживание коммерческие объкеты любой сферы
-                        деятельности. Подписав с нами договор вы будете уверены в быстром
-                        решении проблем мешающих оптимальной жизнедеятельности офиса или
-                        предприятия.
-                    </li>
-                    <li>
-                        <svg class="icon icon-house" viewBox="0 0 32 32">
-                            <use xlink:href="/css/sprite.svg#combuild"></use>
-                        </svg>
-                        Один из важнейших факторов слаженной работы коммерческого предприятия –
-                        надежно функционирующая сантехника и связанные с ней системы. Мы
-                        оказываем услуги для предприятий любого типа – кафе, баров, ресторанов,
-                        офисов и банков.
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.thirdSections, 'template': 'Block/third-sections.html.twig'}) }}
+
     <!--услуги-->
     <section class="container-fluid services-screen bg-gray" id="2">
         <div class="row">

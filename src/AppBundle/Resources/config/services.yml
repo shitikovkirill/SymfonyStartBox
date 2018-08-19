@@ -31,6 +31,15 @@ services:
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
 
+    app.admin.third_section:
+        class: AppBundle\Admin\ThirdSectionAdmin
+        arguments: [~, AppBundle\Entity\ThirdSection, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ThirdSection }
+        public: true
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
+
     app.block.service.main:
         class: AppBundle\Block\MainBlock
         arguments:

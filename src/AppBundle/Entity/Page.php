@@ -77,10 +77,21 @@ class Page
      * @ORM\ManyToMany(targetEntity="SecondSection", cascade={"persist"})
      * @ORM\JoinTable(name="pages_second_sections",
      *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="second_section_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")}
      *      )
      */
     private $secondSections;
+
+
+    /**
+     * Many Pages have Many SecondSections.
+     * @ORM\ManyToMany(targetEntity="ThirdSection", cascade={"persist"})
+     * @ORM\JoinTable(name="pages_third_sections",
+     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")}
+     *      )
+     */
+    private $thirdSections;
 
     /**
      * @Assert\Valid
@@ -100,6 +111,7 @@ class Page
         $this->translations = new ArrayCollection();
         $this->privileges = new ArrayCollection();
         $this->secondSections = new ArrayCollection();
+        $this->thirdSections = new ArrayCollection();
     }
 
     /**
@@ -218,6 +230,30 @@ class Page
     public function addSecondSection(SecondSection $secondSection): void
     {
         $this->secondSections->add($secondSection);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThirdSections()
+    {
+        return $this->thirdSections;
+    }
+
+    /**
+     * @param mixed $thirdSections
+     */
+    public function setThirdSections($thirdSections): void
+    {
+        $this->thirdSections = $thirdSections;
+    }
+
+    /**
+     * @param ThirdSection $thirdSection
+     */
+    public function addThirdSection(ThirdSection $thirdSection): void
+    {
+        $this->thirdSections->add($thirdSection);
     }
 
     /**

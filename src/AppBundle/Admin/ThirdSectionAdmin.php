@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-class SecondSectionAdmin extends AbstractAdmin
+class ThirdSectionAdmin extends AbstractAdmin
 {
     /** @var UploaderHelper $vichUploader Vich uploader */
     protected $vichUploader;
@@ -35,14 +35,7 @@ class SecondSectionAdmin extends AbstractAdmin
             ->add('file', 'file', $imageFieldOptions)
             ->add(
                 'translations',
-                TranslationsType::class,
-                [
-                    'fields' => [
-                        'description' => [
-                            'field_type' => CKEditorType::class,
-                        ],
-                    ]
-                ]
+                TranslationsType::class
             )
             ->add('privileges',
                 'sonata_type_collection',
@@ -55,7 +48,6 @@ class SecondSectionAdmin extends AbstractAdmin
                     'edit' => 'inline',
                     'inline' => 'table',
                     'sortable' => 'position',
-                    'help' => PrivilegeAdmin::getIcons()
                 )
             )
         ;

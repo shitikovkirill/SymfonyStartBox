@@ -1,0 +1,18 @@
+<!--объекты-->
+<section class="container-fluid info-object-screen">
+    <div class="row">
+        {% for section in sections %}
+            <div class="container home">
+                <div class="thumb">
+                    <img src="/images/{{ section.image }}"
+                         alt="{{ section.title }}">
+                    <h5>{{ section.title }}</h5>
+                </div>
+                {% if section.privileges %}
+                    {% include('Block/parts/third-section-icon-block.html.twig') with {'privileges': section.privileges} %}
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+</section>

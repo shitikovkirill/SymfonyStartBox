@@ -1,0 +1,10 @@
+<ul class="block-ico-left">
+    {% for privilege in privileges %}
+        <li>
+            <svg class="icon icon-house" viewBox="0 0 32 32">
+                <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ privilege.icon }}"></use>
+            </svg>
+            {{ privilege.title }}
+        </li>
+    {% endfor %}
+</ul>

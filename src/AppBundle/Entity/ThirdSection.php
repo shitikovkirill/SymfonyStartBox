@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @Vich\Uploadable()
  */
-class SecondSection
+class ThirdSection
 {
     use ORMBehaviors\Translatable\Translatable;
 
@@ -55,7 +55,7 @@ class SecondSection
     /**
      * Many Pages have Many Privileges.
      * @ORM\ManyToMany(targetEntity="Privilege", cascade={"persist"})
-     * @ORM\JoinTable(name="second_section_privileges",
+     * @ORM\JoinTable(name="third_section_privileges",
      *      joinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="privilege_id", referencedColumnName="id")}
      *      )
