@@ -49,7 +49,8 @@ class SecondSectionAdmin extends AbstractAdmin
                 array(
                     'type_options' => array(
                         'delete' => true,
-                    )
+                    ),
+                    'required' => false,
                 ),
                 array(
                     'edit' => 'inline',
