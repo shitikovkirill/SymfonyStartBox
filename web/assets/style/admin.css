@@ -3,7 +3,7 @@
     flex-direction: column-reverse;
     flex-basis: 90px;
 }
-.help-block {
+.help-block .icon-help {
     display: flex !important;
     flex-grow: 1;
     flex-wrap: wrap;

@@ -70,7 +70,7 @@ class PrivilegeAdmin extends AbstractAdmin
                     <use xlink:href="/assets/style/sprite.svg#'. $icon .'"></use>
                 </svg>'. $icon .'</span>';
         }
-        return $icons;
+        return '<div class="icon-help">'. $icons. '</div>';
     }
 
     protected function configureFormFields(FormMapper $formMapper)
