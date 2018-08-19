@@ -13,7 +13,7 @@
                 {% endif %}
 
                 <h2 class="title-medium text-center">{{ section.title }}</h2>
-                {{ section.description }}
+                {{ section.description|raw }}
                 {% if section.privileges %}
                     {% include('Block/parts/info-menu.html.twig') with {'privileges': section.privileges} %}
                 {% endif %}
