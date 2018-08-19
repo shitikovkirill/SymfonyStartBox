@@ -49,6 +49,15 @@ class PageAdmin extends AbstractAdmin
             $imageFieldOptions['help'] = '<img src="'.$path.'" class="admin-preview" style="max-width: 300px"/>';
         }
 
+        $iconsOptions = array(
+            'edit' => 'inline',
+            'inline' => 'table',
+            'sortable' => 'position',
+            'help' => '',
+        );
+
+        $iconsOptions['help'] = PrivilegeAdmin::getIcons();
+
         $formMapper
             ->tab('Main')
             ->with('')
@@ -65,11 +74,7 @@ class PageAdmin extends AbstractAdmin
                             'delete' => true,
                         )
                     ),
-                    array(
-                        'edit' => 'inline',
-                        'inline' => 'table',
-                        'sortable' => 'position',
-                    )
+                    $iconsOptions
                 )
             ->end()
             ->end()
