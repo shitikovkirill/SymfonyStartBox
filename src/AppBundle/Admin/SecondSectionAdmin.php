@@ -8,6 +8,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\BooleanType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class SecondSectionAdmin extends AbstractAdmin
@@ -32,18 +33,36 @@ class SecondSectionAdmin extends AbstractAdmin
         }
 
         $formMapper
+            ->with('Content', ['class' => 'col-md-8'])
+                ->add(
+                    'translations',
+                    TranslationsType::class,
+                    [
+                        'fields' => [
+                            'description' => [
+                                'field_type' => CKEditorType::class,
+                            ],
+                        ]
+                    ]
+                )
+            ->end()
+            ->with('Image', ['class' => 'col-md-4'])
             ->add('file', 'file', $imageFieldOptions)
             ->add(
-                'translations',
-                TranslationsType::class,
+                'deleteImage',
+                BooleanType::class,
                 [
-                    'fields' => [
-                        'description' => [
-                            'field_type' => CKEditorType::class,
-                        ],
-                    ]
+                    'choices' => [
+                        'label_type_no' => BooleanType::TYPE_NO,
+                        'label_type_yes' => BooleanType::TYPE_YES,
+                    ],
+                ],
+                [
+                    'translation_domain' => "SonataAdminBundle",
+                    'help'=>'second_select_delete_image'
                 ]
             )
+            ->end()
             ->add('privileges',
                 'sonata_type_collection',
                 array(

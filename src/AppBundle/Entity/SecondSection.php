@@ -46,6 +46,11 @@ class SecondSection
     private $image;
 
     /**
+     * @var bool
+     */
+    private $deleteImage = false;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
@@ -123,6 +128,25 @@ class SecondSection
     public function setImage(string $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDeleteImage(): bool
+    {
+        return $this->deleteImage;
+    }
+
+    /**
+     * @param bool $deleteImage
+     */
+    public function setDeleteImage(bool $deleteImage): void
+    {
+        if ($deleteImage) {
+            $this->image = null;
+        }
+        $this->deleteImage = $deleteImage;
     }
 
     /**
