@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Page;
+use AppBundle\Entity\SecondSection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,8 +15,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $entity_manager = $this->container->get('doctrine.orm.default_entity_manager');
-        $pageRep = $entity_manager->getRepository(Page::class);
+
+        $entityManager = $this->container->get('doctrine.orm.default_entity_manager');
+        $pageRep = $entityManager->getRepository(Page::class);
         $page = $pageRep ->findOneBy(['slug'=>'main']);
 
         return $this->render(

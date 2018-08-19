@@ -39,14 +39,14 @@ class SecondSection
     private $file;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $image;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
      */
@@ -100,7 +100,7 @@ class SecondSection
     /**
      * @param File $file
      */
-    public function setFile(File $file): void
+    public function setFile(?File $file): void
     {
         $this->file = $file;
 
