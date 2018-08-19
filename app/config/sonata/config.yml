@@ -1,3 +1,8 @@
+sonata_admin:
+    assets:
+        extra_javascripts: ['assets/javascript/admin.js']
+
+
 sonata_block:
     default_contexts: [cms]
     blocks:

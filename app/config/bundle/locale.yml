@@ -36,3 +36,4 @@ a2lix_translation_form:
     locales: [ru,uk]
     default_locale: ru
     required_locales: [ru,uk]
+    templating: "Form/translation-form.html.twig"

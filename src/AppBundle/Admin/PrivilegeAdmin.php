@@ -22,15 +22,19 @@ class PrivilegeAdmin extends AbstractAdmin
                 'icon',
                 'choice',
                 array(
+                    'attr'=>[
+                        'class'=>'icon-select',
+                        'data-sonata-select2' => false,
+                    ],
                     'choices' => array(
-                        'Icon 1' => 'services-best-plumbers',
-                        'Icon 2' => 'services-quick',
-                        'Icon 3' => 'services-reliable',
-                        'Icon 4' => 'services-best_result',
-                        'Icon 5' => 'help-request',
-                        'Icon 6' => 'help-fast',
-                        'Icon 7' => 'help-working',
-                        'Icon 8' => 'help-payment',
+                        'services-best-plumbers' => 'services-best-plumbers',
+                        'services-quick' => 'services-quick',
+                        'services-reliable' => 'services-reliable',
+                        'services-best_result' => 'services-best_result',
+                        'help-request' => 'help-request',
+                        'help-fast' => 'help-fast',
+                        'help-working' => 'help-working',
+                        'help-payment' => 'help-payment',
                     ))
             )
         ;
