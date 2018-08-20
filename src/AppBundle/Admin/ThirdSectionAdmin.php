@@ -37,7 +37,7 @@ class ThirdSectionAdmin extends AbstractAdmin
                 'translations',
                 TranslationsType::class
             )
-            ->add('privileges',
+            ->add('iconBlocks',
                 'sonata_type_collection',
                 array(
                     'type_options' => array(

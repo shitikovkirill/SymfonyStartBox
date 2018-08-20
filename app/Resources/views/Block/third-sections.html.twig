@@ -8,8 +8,8 @@
                          alt="{{ section.title }}">
                     <h5>{{ section.title }}</h5>
                 </div>
-                {% if section.privileges %}
-                    {% include('Block/parts/third-section-icon-block.html.twig') with {'privileges': section.privileges} %}
+                {% if section.iconBlocks %}
+                    {% include('Block/parts/third-section-icon-block.html.twig') with {'iconBlocks': section.iconBlocks} %}
                 {% endif %}
             </div>
         {% endfor %}

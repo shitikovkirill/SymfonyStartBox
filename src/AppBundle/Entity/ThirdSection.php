@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Class Privilege
+ * Class ThirdSection
  *
  * @ORM\Entity()
  *
@@ -53,14 +53,14 @@ class ThirdSection
     private $updatedAt;
 
     /**
-     * Many Pages have Many Privileges.
-     * @ORM\ManyToMany(targetEntity="Privilege", cascade={"persist"})
-     * @ORM\JoinTable(name="third_section_privileges",
+     * Many Pages have Many IconBlocks.
+     * @ORM\ManyToMany(targetEntity="IconBlock", cascade={"persist"})
+     * @ORM\JoinTable(name="third_section_icon_blocks",
      *      joinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="privilege_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="icon_block_id", referencedColumnName="id")}
      *      )
      */
-    private $privileges;
+    private $iconBlocks;
 
     /**
      * @Assert\Valid
@@ -78,7 +78,7 @@ class ThirdSection
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-        $this->privileges = new ArrayCollection();
+        $this->iconBlocks = new ArrayCollection();
     }
 
     /**
@@ -144,25 +144,25 @@ class ThirdSection
     /**
      * @return mixed
      */
-    public function getPrivileges()
+    public function getIconBlocks()
     {
-        return $this->privileges;
+        return $this->iconBlocks;
     }
 
     /**
-     * @param mixed $privileges
+     * @param mixed $iconBlocks
      */
-    public function setPrivileges($privileges): void
+    public function setIconBlocks($iconBlocks): void
     {
-        $this->privileges = $privileges;
+        $this->iconBlocks = $iconBlocks;
     }
 
     /**
-     * @param Privilege $privilege
+     * @param IconBlock $iconBlock
      */
-    public function addPrivilege(Privilege $privilege)
+    public function addIconBlock(IconBlock $iconBlock)
     {
-        $this->privileges->add($privilege);
+        $this->iconBlocks->add($iconBlock);
     }
 
     /**

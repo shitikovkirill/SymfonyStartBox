@@ -7,9 +7,9 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class PrivilegeAdmin
+ * Class IconBlockAdmin
  */
-class PrivilegeAdmin extends AbstractAdmin
+class IconBlockAdmin extends AbstractAdmin
 {
     public static $icons = array(
         'work-prochistka'=>'work-prochistka',
@@ -65,7 +65,7 @@ class PrivilegeAdmin extends AbstractAdmin
     public static function getIcons()
     {
         $icons = '';
-        foreach (PrivilegeAdmin::$icons as $icon) {
+        foreach (IconBlockAdmin::$icons as $icon) {
             $icons .= '<span class="icon-helper"><svg class="icon" width="50" height="50">
                     <use xlink:href="/assets/style/sprite.svg#'. $icon .'"></use>
                 </svg>'. $icon .'</span>';

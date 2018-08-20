@@ -10,11 +10,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Class Privilege
+ * Class IconBlock
  *
  * @ORM\Entity()
  */
-class Privilege
+class IconBlock
 {
     use ORMBehaviors\Translatable\Translatable;
 

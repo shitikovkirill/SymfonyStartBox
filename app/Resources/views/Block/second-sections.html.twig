@@ -14,8 +14,8 @@
 
                 <h2 class="title-medium text-center">{{ section.title }}</h2>
                 {{ section.description|raw }}
-                {% if section.privileges %}
-                    {% include('Block/parts/info-menu.html.twig') with {'privileges': section.privileges} %}
+                {% if section.iconBlocks %}
+                    {% include('Block/parts/info-menu.html.twig') with {'iconBlocks': section.iconBlocks} %}
                 {% endif %}
             </div>
         {% endfor %}

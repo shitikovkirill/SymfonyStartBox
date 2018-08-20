@@ -7,11 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Class Privilege
+ * Class IconBlockTranslation
  *
  * @ORM\Entity()
  */
-class PrivilegeTranslation
+class IconBlockTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 

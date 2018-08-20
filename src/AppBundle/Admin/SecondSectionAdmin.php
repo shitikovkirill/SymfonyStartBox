@@ -63,7 +63,7 @@ class SecondSectionAdmin extends AbstractAdmin
                 ]
             )
             ->end()
-            ->add('privileges',
+            ->add('iconBlocks',
                 'sonata_type_collection',
                 array(
                     'type_options' => array(
@@ -75,7 +75,7 @@ class SecondSectionAdmin extends AbstractAdmin
                     'edit' => 'inline',
                     'inline' => 'table',
                     'sortable' => 'position',
-                    'help' => PrivilegeAdmin::getIcons()
+                    'help' => IconBlockAdmin::getIcons()
                 )
             )
         ;
