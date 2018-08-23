@@ -56,6 +56,21 @@ class Page
     private $topImage;
 
     /**
+     *
+     * @Vich\UploadableField(mapping="my_image", fileNameProperty="mobileImage")
+     *
+     * @var File
+     */
+    private $mobileImageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $mobileImage;
+
+    /**
      * @ORM\Column(type="datetime")
      *
      * @var \DateTime
@@ -94,6 +109,16 @@ class Page
     private $thirdSections;
 
     /**
+     * Many Pages have Many IconBlocks.
+     * @ORM\ManyToMany(targetEntity="IconBlock", cascade={"persist"})
+     * @ORM\JoinTable(name="pages_our_services_icon_blocks",
+     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="icon_block_id", referencedColumnName="id")}
+     *      )
+     */
+    private $ourServicesIcons;
+
+    /**
      * @Assert\Valid
      */
     protected $translations;
@@ -112,6 +137,7 @@ class Page
         $this->iconBlocks = new ArrayCollection();
         $this->secondSections = new ArrayCollection();
         $this->thirdSections = new ArrayCollection();
+        $this->ourServicesIcons = new ArrayCollection();
     }
 
     /**
@@ -185,6 +211,43 @@ class Page
     }
 
     /**
+     * @return string
+     */
+    public function getMobileImage(): ?string
+    {
+        return $this->mobileImage;
+    }
+
+    /**
+     * @param string $mobileImage
+     */
+    public function setMobileImage(?string $mobileImage): void
+    {
+        $this->mobileImage = $mobileImage;
+    }
+
+    /**
+     * @return File
+     */
+    public function getMobileImageFile(): ?File
+    {
+        return $this->mobileImageFile;
+    }
+
+    /**
+     * @param File $mobileImageFile
+     */
+    public function setMobileImageFile(File $mobileImageFile): void
+    {
+        $this->mobileImageFile = $mobileImageFile;
+
+        if (null !== $mobileImageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+
+    /**
      * @return mixed
      */
     public function getIconBlocks()
@@ -254,6 +317,30 @@ class Page
     public function addThirdSection(ThirdSection $thirdSection): void
     {
         $this->thirdSections->add($thirdSection);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOurServicesIcons()
+    {
+        return $this->ourServicesIcons;
+    }
+
+    /**
+     * @param mixed $ourServicesIcons
+     */
+    public function setOurServicesIcons($ourServicesIcons)
+    {
+        $this->ourServicesIcons = $ourServicesIcons;
+    }
+
+    /**
+     * @param mixed $ourServicesIcon
+     */
+    public function addOurServicesIcon($ourServicesIcon)
+    {
+        $this->ourServicesIcons->add($ourServicesIcon);
     }
 
     /**

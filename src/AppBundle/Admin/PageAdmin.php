@@ -2,16 +2,13 @@
 
 namespace AppBundle\Admin;
 
-use A2lix\TranslationFormBundle\Form\Type\TranslatedEntityType;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use AppBundle\Entity\Page;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 class PageAdmin extends AbstractAdmin
@@ -49,33 +46,49 @@ class PageAdmin extends AbstractAdmin
             $imageFieldOptions['help'] = '<img src="'.$path.'" class="admin-preview" style="max-width: 300px"/>';
         }
 
+        $mobileImageFieldOptions = [
+            'required' => false,
+            'label' => 'Image',
+        ];
+
+        if ($page && !empty($page->getMobileImage())) {
+            $path = $this->vichUploader->asset($page, 'mobileImageFile');
+            $mobileImageFieldOptions['help'] = '<img src="'.$path.'" class="admin-preview" style="max-width: 300px"/>';
+        }
+
         $iconsOptionsHelp = IconBlockAdmin::getIcons();
 
         $formMapper
             ->tab('Main')
+            ->with('Top image', ['class' => 'col-md-6'])
+                ->add('topImageFile', 'file', $imageFieldOptions)
+            ->end()
+            ->with('Top image mobile', ['class' => 'col-md-6'])
+                ->add('mobileImageFile', 'file', $mobileImageFieldOptions)
+            ->end()
             ->with('')
                 ->add('slug')
-                ->add('topImageFile', 'file', $imageFieldOptions)
+                ->add('iconBlocks',
+                'sonata_type_collection',
+                array(
+                    'type_options' => array(
+                        'delete' => true,
+                    )
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                    'help' => $iconsOptionsHelp,
+                )
+            )
                 ->add(
                     'translations',
                     TranslationsType::class
                 )
-                ->add('iconBlocks',
-                    'sonata_type_collection',
-                    array(
-                        'type_options' => array(
-                            'delete' => true,
-                        )
-                    ),
-                    array(
-                        'edit' => 'inline',
-                        'inline' => 'table',
-                        'sortable' => 'position',
-                        'help' => $iconsOptionsHelp,
-                    )
-                )
             ->end()
             ->end()
+
             ->tab('SecondSection')
             ->with('')
                 ->add(
@@ -91,6 +104,7 @@ class PageAdmin extends AbstractAdmin
                 )
             ->end()
             ->end()
+
             ->tab('ThirdSection')
             ->with('')
             ->add(
@@ -102,6 +116,26 @@ class PageAdmin extends AbstractAdmin
                     'btn_delete'    => 'Delete',
                     'btn_catalogue' => 'Catalog',
                     'multiple'      => true,
+                )
+            )
+            ->end()
+            ->end()
+
+            ->tab('Our services')
+            ->with('')
+            ->add(
+                'ourServicesIcons',
+                'sonata_type_collection',
+                array(
+                    'type_options' => array(
+                        'delete' => true,
+                    )
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                    'help' => $iconsOptionsHelp,
                 )
             )
             ->end()

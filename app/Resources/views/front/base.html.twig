@@ -5,6 +5,23 @@
     {% block meta %}{{ include('parts/head/meta.html.twig') }}{% endblock %}
     {% block script %}{{ include('parts/head/script.html.twig') }}{% endblock %}
     {% block stylesheet %}{{ include('parts/head/stylesheet.html.twig') }}{% endblock %}
+    <style>
+        section.first-1 {
+            background-image: url(http:/images/{{ page.mobileImage }})
+        }
+        @media screen and (min-width: 768px) {
+            section.first-1 {
+                background-image: url(http:/images/{{ page.topImage }});
+                background-position:left top
+            }
+        }
+        @media screen and (min-width: 1024px) {
+            section.first-1 {
+                background-image:url(http:/images/{{ page.topImage }});
+                background-position:center top
+            }
+        }
+    </style>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/Plumber">
