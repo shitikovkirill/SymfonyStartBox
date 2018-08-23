@@ -8,6 +8,8 @@
 
     {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.thirdSections, 'template': 'Block/third-sections.html.twig'}) }}
 
+    {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page, 'template': 'Block/services.html.twig'}) }}
+
     {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page, 'template': 'Block/contacts.html.twig'}) }}
 
 {% endblock %}
