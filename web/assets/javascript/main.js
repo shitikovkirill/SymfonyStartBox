@@ -61,7 +61,8 @@ $(document).ready(function(){
         var timeSec = parseInt($('#sec').val());
         var counter = setInterval(function(){
             timeSec--;
-            var Min = Math.floor(timeSec / 60);
+            var Hour = Math.floor(timeSec / (60*60));
+            var Min = Math.floor((timeSec % (60*60)) / 60);
             var Sec = timeSec% 60;
             if(Min < 10 ){
                 Min = '0' + Min;
@@ -69,11 +70,14 @@ $(document).ready(function(){
             if(Sec < 10 ){
                 Sec = '0' + Sec;
             }
+            if(Hour < 10 ){
+                Hour = '0' + Hour;
+            }
             if(timeSec < 0 ){
                 clearInterval(counter);
                 $('.pp').removeClass('pp').addClass('callback-timer');
             } else {
-                $('.counter').html('<span>00</span><span>:</span><span>' + Min + '</span><span>:</span><span>' + Sec + '</span>');
+                $('.counter').html('<span>'+Hour+'</span><span>:</span><span>' + Min + '</span><span>:</span><span>' + Sec + '</span>');
             }
         }, 1000);
     };
@@ -95,7 +99,7 @@ $(document).ready(function () {
         var formNm = $('#' + formID);
         $.ajax({
             type: "POST",
-            url: 'post.php',
+            url: '/ru/order',
             data: formNm.serialize(),
         });
         return false;

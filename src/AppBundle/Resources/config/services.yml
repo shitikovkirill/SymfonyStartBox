@@ -55,3 +55,10 @@ services:
             - '@templating.engine.twig'
         tags:
             - { name: sonata.block }
+
+    app.admin.call_order:
+        class: AppBundle\Admin\CallOrderAdmin
+        arguments: [~, AppBundle\Entity\CallOrder, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: orders, label: CallOrder }
+        public: true
