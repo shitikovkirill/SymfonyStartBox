@@ -12,14 +12,13 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Page
+ * Header
  *
- * @ORM\Table(name="page")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HeaderRepository")
  *
  * @Vich\Uploadable()
  */
-class Page
+class Header
 {
     use ORMBehaviors\Translatable\Translatable;
 
@@ -78,45 +77,14 @@ class Page
     private $updatedAt;
 
     /**
-     * Many Pages have Many IconBlocks.
+     * Many Headers have Many IconBlocks.
      * @ORM\ManyToMany(targetEntity="IconBlock", cascade={"persist"})
-     * @ORM\JoinTable(name="pages_icon_blocks",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
+     * @ORM\JoinTable(name="headers_icon_blocks",
+     *      joinColumns={@ORM\JoinColumn(name="header_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="icon_block_id", referencedColumnName="id")}
      *      )
      */
     private $iconBlocks;
-
-    /**
-     * Many Pages have Many SecondSections.
-     * @ORM\ManyToMany(targetEntity="SecondSection", cascade={"persist"})
-     * @ORM\JoinTable(name="pages_second_sections",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")}
-     *      )
-     */
-    private $secondSections;
-
-
-    /**
-     * Many Pages have Many SecondSections.
-     * @ORM\ManyToMany(targetEntity="ThirdSection", cascade={"persist"})
-     * @ORM\JoinTable(name="pages_third_sections",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="section_id", referencedColumnName="id")}
-     *      )
-     */
-    private $thirdSections;
-
-    /**
-     * Many Pages have Many IconBlocks.
-     * @ORM\ManyToMany(targetEntity="IconBlock", cascade={"persist"})
-     * @ORM\JoinTable(name="pages_our_services_icon_blocks",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="icon_block_id", referencedColumnName="id")}
-     *      )
-     */
-    private $ourServicesIcons;
 
     /**
      * @Assert\Valid
@@ -135,9 +103,6 @@ class Page
     {
         $this->translations = new ArrayCollection();
         $this->iconBlocks = new ArrayCollection();
-        $this->secondSections = new ArrayCollection();
-        $this->thirdSections = new ArrayCollection();
-        $this->ourServicesIcons = new ArrayCollection();
     }
 
     /**
@@ -155,7 +120,7 @@ class Page
      *
      * @param string $slug
      *
-     * @return Page
+     * @return Header
      */
     public function setSlug($slug)
     {
@@ -269,78 +234,6 @@ class Page
     public function addIconBlock(IconBlock $iconBlock)
     {
         $this->iconBlocks->add($iconBlock);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSecondSections()
-    {
-        return $this->secondSections;
-    }
-
-    /**
-     * @param mixed $secondSections
-     */
-    public function setSecondSections($secondSections): void
-    {
-        $this->secondSections = $secondSections;
-    }
-
-    /**
-     * @param SecondSection $secondSection
-     */
-    public function addSecondSection(SecondSection $secondSection): void
-    {
-        $this->secondSections->add($secondSection);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getThirdSections()
-    {
-        return $this->thirdSections;
-    }
-
-    /**
-     * @param mixed $thirdSections
-     */
-    public function setThirdSections($thirdSections): void
-    {
-        $this->thirdSections = $thirdSections;
-    }
-
-    /**
-     * @param ThirdSection $thirdSection
-     */
-    public function addThirdSection(ThirdSection $thirdSection): void
-    {
-        $this->thirdSections->add($thirdSection);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOurServicesIcons()
-    {
-        return $this->ourServicesIcons;
-    }
-
-    /**
-     * @param mixed $ourServicesIcons
-     */
-    public function setOurServicesIcons($ourServicesIcons)
-    {
-        $this->ourServicesIcons = $ourServicesIcons;
-    }
-
-    /**
-     * @param mixed $ourServicesIcon
-     */
-    public function addOurServicesIcon($ourServicesIcon)
-    {
-        $this->ourServicesIcons->add($ourServicesIcon);
     }
 
     /**

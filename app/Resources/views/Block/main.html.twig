@@ -1,4 +1,21 @@
 <!--главный экран-->
+<style>
+    section.first-1 {
+        background-image: url(http:/images/{{ page.mobileImage }})
+    }
+    @media screen and (min-width: 768px) {
+        section.first-1 {
+            background-image: url(http:/images/{{ page.topImage }});
+            background-position:left top
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        section.first-1 {
+            background-image:url(http:/images/{{ page.topImage }});
+            background-position:center top
+        }
+    }
+</style>
 <section class="container-fluid first-1">
     <div class="center-content">
         <div class="container">

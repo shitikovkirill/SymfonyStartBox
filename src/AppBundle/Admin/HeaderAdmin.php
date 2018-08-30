@@ -3,7 +3,7 @@
 namespace AppBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
-use AppBundle\Entity\Page;
+use AppBundle\Entity\Header;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -11,7 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-class PageAdmin extends AbstractAdmin
+class HeaderAdmin extends AbstractAdmin
 {
 
     /** @var UploaderHelper $vichUploader Vich uploader */
@@ -33,12 +33,13 @@ class PageAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         /**
-         * @var Page $page
+         * @var Header $page
          */
         $page = $this->getSubject();
         $imageFieldOptions = [
             'required' => false,
             'label' => 'Image',
+            'attr' => ['accept'=> 'image/*'],
         ];
 
         if ($page && !empty($page->getTopImage())) {
@@ -49,6 +50,7 @@ class PageAdmin extends AbstractAdmin
         $mobileImageFieldOptions = [
             'required' => false,
             'label' => 'Image',
+            'attr' => ['accept'=> 'image/*'],
         ];
 
         if ($page && !empty($page->getMobileImage())) {
@@ -59,7 +61,6 @@ class PageAdmin extends AbstractAdmin
         $iconsOptionsHelp = IconBlockAdmin::getIcons();
 
         $formMapper
-            ->tab('Main')
             ->with('Top image', ['class' => 'col-md-6'])
                 ->add('topImageFile', 'file', $imageFieldOptions)
             ->end()
@@ -86,61 +87,7 @@ class PageAdmin extends AbstractAdmin
                     'translations',
                     TranslationsType::class
                 )
-            ->end()
-            ->end()
-
-            ->tab('SecondSection')
-            ->with('')
-                ->add(
-                    'secondSections',
-                    'sonata_type_model',
-                    array(
-                        'btn_add'       => 'Add',
-                        'btn_list'      => 'List',
-                        'btn_delete'    => 'Delete',
-                        'btn_catalogue' => 'Catalog',
-                        'multiple'      => true,
-                    )
-                )
-            ->end()
-            ->end()
-
-            ->tab('ThirdSection')
-            ->with('')
-            ->add(
-                'thirdSections',
-                'sonata_type_model',
-                array(
-                    'btn_add'       => 'Add',
-                    'btn_list'      => 'List',
-                    'btn_delete'    => 'Delete',
-                    'btn_catalogue' => 'Catalog',
-                    'multiple'      => true,
-                )
-            )
-            ->end()
-            ->end()
-
-            ->tab('Our services')
-            ->with('')
-            ->add(
-                'ourServicesIcons',
-                'sonata_type_collection',
-                array(
-                    'type_options' => array(
-                        'delete' => true,
-                    )
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
-                    'help' => $iconsOptionsHelp,
-                )
-            )
-            ->end()
-            ->end()
-        ;
+            ->end();
     }
 
     protected function configureShowFields(ShowMapper $showMapper)

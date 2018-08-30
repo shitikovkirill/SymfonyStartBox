@@ -2,14 +2,47 @@
 
 {% block content_transition %}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page}) }}
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.main' },
+        {
+            'class': 'AppBundle\\Entity\\Header',
+            'category': 'Headers'
+        }
+    ) }}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.secondSections, 'template': 'Block/second-sections.html.twig'}) }}
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.sections' },
+        {
+            'class': 'AppBundle\\Entity\\SecondSection',
+            'category': 'SecondSection'
+        }
+    ) }}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.sections' }, {'sections': page.thirdSections, 'template': 'Block/third-sections.html.twig'}) }}
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.sections' },
+        {
+            'class': 'AppBundle\\Entity\\ThirdSection',
+            'category': 'ThirdSection',
+            'template': 'Block/third-sections.html.twig'
+        }
+    ) }}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page, 'template': 'Block/services.html.twig'}) }}
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.main' },
+        {
+            'class': 'AppBundle\\Entity\\Service',
+            'category': 'Service',
+            'template': 'Block/services.html.twig'
+        }
+    ) }}
 
-    {{ sonata_block_render({ 'type': 'app.block.service.main' }, {'page': page, 'template': 'Block/contacts.html.twig'}) }}
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.main' },
+        {
+            'class': 'AppBundle\\Entity\\Contact',
+            'category': 'Contacts',
+            'template': 'Block/contacts.html.twig'
+        }
+    ) }}
 
 {% endblock %}

@@ -25,6 +25,7 @@ class SecondSectionAdmin extends AbstractAdmin
         $imageFieldOptions = [
             'required' => false,
             'label' => 'Image',
+            'attr' => ['accept'=> 'image/*'],
         ];
 
         if ($page && !empty($page->getImage())) {

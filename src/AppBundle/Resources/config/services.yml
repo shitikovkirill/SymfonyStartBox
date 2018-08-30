@@ -1,16 +1,35 @@
 services:
+
+    app.block.service.main:
+        class: AppBundle\Block\PageBlock
+        arguments:
+            - 'main_page_header'
+            - '@templating.engine.twig'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: sonata.block }
+
+    app.block.service.sections:
+        class: AppBundle\Block\SecondSectionsBlock
+        arguments:
+            - 'main_second_sections_block'
+            - '@templating.engine.twig'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: sonata.block }
+
     app.admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [~, AppBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: User }
+            - { name: sonata.admin, manager_type: orm, group: Users, label: User }
         public: true
 
     app.admin.page:
-        class: AppBundle\Admin\PageAdmin
-        arguments: [~, AppBundle\Entity\Page, SonataAdminBundle:CRUD]
+        class: AppBundle\Admin\HeaderAdmin
+        arguments: [~, AppBundle\Entity\Header, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Page }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Headers }
         public: true
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
@@ -40,25 +59,30 @@ services:
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
 
-    app.block.service.main:
-        class: AppBundle\Block\MainBlock
-        arguments:
-            - ~
-            - '@templating.engine.twig'
-        tags:
-            - { name: sonata.block }
-
-    app.block.service.sections:
-        class: AppBundle\Block\SectionsBlock
-        arguments:
-            - ~
-            - '@templating.engine.twig'
-        tags:
-            - { name: sonata.block }
-
     app.admin.call_order:
         class: AppBundle\Admin\CallOrderAdmin
         arguments: [~, AppBundle\Entity\CallOrder, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: orders, label: CallOrder }
+        public: true
+
+    app.admin.contact:
+        class: AppBundle\Admin\ContactAdmin
+        arguments: [~, AppBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Contact }
+        public: true
+
+    app.admin.service:
+        class: AppBundle\Admin\ServiceAdmin
+        arguments: [~, AppBundle\Entity\Service, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Service }
+        public: true
+
+    app.admin.icon_file_block:
+        class: AppBundle\Admin\IconFileBlockAdmin
+        arguments: [~, AppBundle\Entity\IconFileBlock, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: IconFileBlock, show_in_dashboard: false  }
         public: true

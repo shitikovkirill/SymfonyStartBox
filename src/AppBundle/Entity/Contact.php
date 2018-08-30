@@ -10,16 +10,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Class IconBlock
+ * Contact
  *
  * @ORM\Entity()
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discriminator", type="string")
- * @ORM\DiscriminatorMap({"icon_block" = "IconBlock", "icon_file_block" = "IconFileBlock"})
  */
-class IconBlock
+class Contact
 {
     use ORMBehaviors\Translatable\Translatable;
+
 
     /**
      * @var int
@@ -31,11 +29,11 @@ class IconBlock
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     *
      * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=30, unique=true)
      */
-    private $icon;
+    private $slug;
 
     /**
      * @Assert\Valid
@@ -56,27 +54,37 @@ class IconBlock
     }
 
     /**
+     * Get id.
+     *
      * @return int
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return string
+     * Set slug.
+     *
+     * @param string $slug
+     *
+     * @return Contact
      */
-    public function getIcon(): ?string
+    public function setSlug($slug)
     {
-        return $this->icon;
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
-     * @param string $icon
+     * Get slug.
+     *
+     * @return string
      */
-    public function setIcon(string $icon): void
+    public function getSlug()
     {
-        $this->icon = $icon;
+        return $this->slug;
     }
 
     /**
@@ -84,6 +92,6 @@ class IconBlock
      */
     public function __toString()
     {
-        return $this->title ?? '';
+        return $this->slug ?? '';
     }
 }

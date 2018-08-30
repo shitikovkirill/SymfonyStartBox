@@ -8,31 +8,11 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 /**
  * PageTranslation Entity.
  *
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PageTranslationRepository")
+ * @ORM\Entity()
  */
-class PageTranslation
+class ContactTranslation
 {
     use ORMBehaviors\Translatable\Translation;
-
-    /**
-     * @ORM\Column(nullable=true)
-     */
-    protected $title;
-
-    /**
-     * @ORM\Column(nullable=true)
-     */
-    protected $description;
-
-    /**
-     * @ORM\Column(nullable=true)
-     */
-    protected $button;
-
-    /**
-     * @ORM\Column(nullable=true)
-     */
-    protected $ourServicesTitle;
 
     /**
      * @ORM\Column(nullable=true)
@@ -53,60 +33,6 @@ class PageTranslation
      * @ORM\Column(type="text",nullable=true)
      */
     protected $contactsRightFirst;
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(?string $title): self
-    {
-        $this->title = $title;
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getButton()
-    {
-        return $this->button;
-    }
-
-    /**
-     * @param mixed $button
-     */
-    public function setButton($button): void
-    {
-        $this->button = $button;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOurServicesTitle()
-    {
-        return $this->ourServicesTitle;
-    }
-
-    /**
-     * @param mixed $ourServicesTitle
-     */
-    public function setOurServicesTitle($ourServicesTitle)
-    {
-        $this->ourServicesTitle = $ourServicesTitle;
-    }
 
     /**
      * @return mixed

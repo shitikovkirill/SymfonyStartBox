@@ -31,6 +31,13 @@ class SecondSection
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=30, unique=true)
+     */
+    private $slug;
+
+    /**
      *
      * @Vich\UploadableField(mapping="my_image", fileNameProperty="image")
      *
@@ -92,6 +99,22 @@ class SecondSection
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
