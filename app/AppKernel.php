@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
             # Image
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
@@ -28,7 +29,9 @@ class AppKernel extends Kernel
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
             new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
             new Ibrows\SonataTranslationBundle\IbrowsSonataTranslationBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
             new AppBundle\AppBundle(),
         ];

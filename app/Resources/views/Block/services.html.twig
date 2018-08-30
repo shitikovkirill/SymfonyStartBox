@@ -1,0 +1,24 @@
+<!--услуги-->
+<section class="container-fluid services-screen bg-gray" id="2">
+    <div class="row">
+        <h3>{{ page.title }}</h3>
+        <div class="container">
+            <ul class="block-ico-left">
+                {% for key, ourService in page.servicesIcons %}
+                    {% if key is even %}
+                        {% include(':Block/parts:icon-item.html.twig') with {'item': ourService} %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="container">
+            <ul class="block-ico-left">
+                {% for key, ourService in page.servicesIcons %}
+                    {% if key is odd %}
+                        {% include(':Block/parts:icon-item.html.twig') with {'item': ourService} %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

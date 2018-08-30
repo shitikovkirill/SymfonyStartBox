@@ -1,0 +1,15 @@
+logo_string: __logo_string
+header_phone_number_number: +380800218111
+header_phone_number_string: ✆ 0 800 218 111
+header_description_ander_phone_number: Бесплатный звонок по всей Украине
+header_menu_call: Вызов
+header_menu_services: Услуги
+header_menu_contacts: Контакты
+header_select_lenguage: Выберите язык
+call_request_on_a_call_back_title: Закажите обратный звонок
+call_request_on_a_call_back_subtitle: Оставьте номер телефона, мы с вами свяжемся в течение минуты
+call_request_on_a_call_back_button: заказать
+footer_text_line: __footer_text_line
+head_brouser_title: Вызов сантехника на дом услуги сантехника установка ремонт замена
+order__count_seconds_for_coll__number: 43200
+Empty content. <br> You mast create page in admin in %category% category page with "slug" %slug%:

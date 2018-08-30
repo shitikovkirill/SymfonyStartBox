@@ -1,0 +1,17 @@
+<div class="modal modal-counter">
+    <div class="btn-closed"></div>
+    <div class="center-content">
+        <h3 class="modal-title">{{ 'call_request_on_a_call_back_title'|trans }}</h3>
+        <p class="modal-subtitle">{{ 'call_request_on_a_call_back_subtitle'|trans }}</p>
+        <form method="post" id="form">
+            <input value="{{ 'order__count_seconds_for_coll__number'| trans }}" id="sec" type="text">
+            <input class="coun" placeholder="+38(0__)___-__-__" id="tel" name="tel" required="" type="tel">
+            <div class="counter"><span>{{ 'order__count_seconds_for_coll__number'| trans|time_part }}</span><span>:</span><span>{{ 'order__count_seconds_for_coll__number'| trans|time_part('minute') }}</span><span>:</span><span>{{ 'order__count_seconds_for_coll__number'| trans|time_part('second') }}</span></div>
+            <div class="container-fluid">
+                <div class="text-center">
+                    <input value="{{ 'call_request_on_a_call_back_button'|trans }}" class="btn btn-big callback-timer" type="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

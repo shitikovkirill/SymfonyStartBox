@@ -1,0 +1,10 @@
+<ul class="block-ico-left">
+    {% for iconBlock in iconBlocks %}
+        <li>
+            <svg class="icon icon-house" viewBox="0 0 32 32">
+                <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ iconBlock.icon }}"></use>
+            </svg>
+            {{ iconBlock.title }}
+        </li>
+    {% endfor %}
+</ul>

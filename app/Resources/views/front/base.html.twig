@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html data-ember-extension="1">
+<head>
+    <title>{{ 'head_brouser_title'|trans }}</title>
+    {% block meta %}{{ include('parts/head/meta.html.twig') }}{% endblock %}
+    {% block script %}{{ include('parts/head/script.html.twig') }}{% endblock %}
+    {% block stylesheet %}{{ include('parts/head/stylesheet.html.twig') }}{% endblock %}
+</head>
+
+<body itemscope="" itemtype="http://schema.org/Plumber">
+
+<!--фиксированное меню-->
+<div class="overlay"></div>
+<div class="transition wrapper">
+    {% block header_transition %}
+        <header class="header transition">
+            <div class="container no-pad">
+                {% block menu %}
+                    {{ include('parts/menu.html.twig') }}
+                {% endblock %}
+            </div>
+        </header>
+    {% endblock %}
+
+    <main class="content">
+        {% block content_transition %}
+            content_transition empty.
+        {% endblock %}
+    </main><!-- .content -->
+    {{ include('parts/svgico.html.twig') }}
+</div><!-- .wrapper -->
+{% block footer_transition %}
+    {{ include('parts/footer/footer.html.twig') }}
+{% endblock %}
+{#<div id="uptocall-mini" class="animated fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+    <div class="uptocall-mini-phone btn-modal order"></div>
+</div>#}
+<!--меню-->
+{{ include('parts/mobile-menu.html.twig') }}
+
+<!--заявка-->
+{{ include('parts/call.html.twig') }}
+
+<!--скрипты-->
+{% block javascript %}
+{{ include('parts/footer/javascript.html.twig') }}
+{% endblock %}
+</body>
+</html>

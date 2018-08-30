@@ -1,0 +1,17 @@
+<ul class="info-menu">
+    <li class="hover-open"></li>
+    {% for key, iconBlock in iconBlocks %}
+    <li>
+        <div class="info-element wow fadeInRight" data-wow-duration=".1s" data-wow-delay=".5s"
+             style="visibility: hidden; animation-duration: 0.1s; animation-delay: 0.5s; animation-name: none;">
+            <svg class="icon help-request" viewBox="0 0 30 30">
+                <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ iconBlock.icon }}"></use>
+            </svg>
+            <div class="hover">
+                {{ iconBlock.title }}
+            </div>
+            <span>{{ key + 1 }}</span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

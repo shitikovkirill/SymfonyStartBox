@@ -49,13 +49,13 @@ class Builder implements ContainerAwareInterface
             $menu->addChild('Admin', array('route' => 'sonata_admin_dashboard'));
         }
         if (!$authChecker->isGranted(array('IS_AUTHENTICATED_FULLY'))) {
-            $menu->addChild(
+            /*$menu->addChild(
                 'Register',
                 array('route' => 'fos_user_registration_register')
-            );
+            );*/
             $menu->addChild('Log in', array('route' => 'fos_user_security_login'));
         } else {
-            $menu->addChild('Profile', array('route' => 'fos_user_profile_show'));
+            /*$menu->addChild('Profile', array('route' => 'fos_user_profile_show'));*/
             $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
         }
 

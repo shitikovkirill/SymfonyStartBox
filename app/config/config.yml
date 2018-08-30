@@ -10,6 +10,7 @@ imports:
     - { resource: bundle/uploader.yml }
     - { resource: bundle/locale.yml }
     - { resource: bundle/image.yml }
+    - { resource: bundle/ckeditor.yml }
     - { resource: "@AppBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
