@@ -84,7 +84,8 @@ class SecondSectionAdmin extends AbstractAdmin
 
     public function configureListFields(ListMapper $list)
     {
-        $list->addIdentifier('title');
+        $list->addIdentifier('slug');
+        $list->add('title');
     }
 
     /**

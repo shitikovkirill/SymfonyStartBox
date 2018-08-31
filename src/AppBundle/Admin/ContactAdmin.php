@@ -14,7 +14,6 @@ class ContactAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('slug')
         ;
     }
@@ -22,15 +21,8 @@ class ContactAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('slug')
-            ->add('_action', null, [
-                'actions' => [
-                    'show' => [],
-                    'edit' => [],
-                    'delete' => [],
-                ],
-            ])
+            ->addIdentifier('slug')
+            ->add('contactsTitle')
         ;
     }
 
