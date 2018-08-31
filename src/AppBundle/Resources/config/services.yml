@@ -86,3 +86,21 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: IconFileBlock, show_in_dashboard: false  }
         public: true
+
+    app.admin.our_works_category:
+        class: AppBundle\Admin\OurWorksCategoryAdmin
+        arguments: [~, AppBundle\Entity\OurWorksCategory, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorksCategory }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
+        public: true
+
+    app.admin.our_works:
+        class: AppBundle\Admin\OurWorksAdmin
+        arguments: [~, AppBundle\Entity\OurWorks, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorks, show_in_dashboard: false }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
+        public: true
