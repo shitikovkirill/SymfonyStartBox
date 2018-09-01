@@ -14,7 +14,7 @@
 
                 <h2 class="title-medium text-center">{{ section.title }}</h2>
                 {{ section.description|raw }}
-                {% if section.iconBlocks %}
+                {% if section.iconBlocks | length %}
                     {% include('Block/parts/info-menu.html.twig') with {'iconBlocks': section.iconBlocks} %}
                 {% endif %}
             </div>
