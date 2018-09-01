@@ -476,3 +476,24 @@ input.coun2{font-size:2.2rem;background-color:#7d8ac4}
 .nav-bar a.logo img {
 	width: 163px;
 }
+.our-work {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.our-work .category {
+	flex-basis: 300px;
+	margin: 0 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.empty-block {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.our-work-category-item img {
+	margin: 10px;
+}

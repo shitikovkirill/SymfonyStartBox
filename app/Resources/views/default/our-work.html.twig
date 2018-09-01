@@ -1,0 +1,46 @@
+{% extends 'front/base.html.twig' %}
+
+{% block menu %}
+    {{ include('parts/menu-short.html.twig') }}
+{% endblock %}
+
+{% block content_transition %}
+
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.main' },
+        {
+            'class': 'AppBundle\\Entity\\Header',
+            'category': 'Headers'
+        }
+    ) }}
+
+    {% if category %}
+        <section class="container-fluid second-screen bg-gray" id="1">
+            <div class="row">
+                <div class="container" style="width: inherit">
+                    <h3>{{ category.title }}</h3>
+                    <div class="statistic-reviews our-work-category-item">
+                        {% if category.ourWorks | length %}
+                            {% for item in category.ourWorks %}
+                                <img width="350px" src="/images/{{ item.image }}" alt="{{ item.title }}">
+                            {% endfor %}
+                        {% else %}
+                            <div class="empty-block">{{ 'This category do not have items' | trans }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
+    {{ sonata_block_render(
+        { 'type': 'app.block.service.main' },
+        {
+            'class': 'AppBundle\\Entity\\Contact',
+            'category': 'Contacts',
+            'template': 'Block/contacts.html.twig'
+        }
+    ) }}
+
+{% endblock %}
