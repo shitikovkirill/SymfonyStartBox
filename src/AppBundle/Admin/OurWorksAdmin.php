@@ -19,6 +19,7 @@ class OurWorksAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->add('image')
+            ->add('order')
         ;
     }
 
@@ -40,6 +41,7 @@ class OurWorksAdmin extends AbstractAdmin
         }
 
         $formMapper
+            ->add('order', null, ['help'=>'Values are sorted in descending order.'])
             ->add('file', 'file', $imageFieldOptions)
             ->add(
                 'translations',

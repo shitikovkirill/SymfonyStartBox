@@ -60,6 +60,7 @@ class OurWorksCategory
      *      joinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="our_work_id", referencedColumnName="id")}
      *      )
+     * @ORM\OrderBy({"order" = "DESC"})
      */
     private $ourWorks;
 

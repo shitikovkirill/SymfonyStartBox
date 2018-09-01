@@ -58,6 +58,13 @@ class OurWorks
     protected $translations;
 
     /**
+     * @ORM\Column(name="orderliness", type="integer", options={"default" : 100})
+     *
+     * @var int
+     */
+    private $order = 100;
+
+    /**
      * @param $method
      * @param $arguments
      * @return mixed
@@ -119,6 +126,22 @@ class OurWorks
         if (null !== $file) {
             $this->updatedAt = new \DateTimeImmutable();
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param int $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
     }
 
     /**
