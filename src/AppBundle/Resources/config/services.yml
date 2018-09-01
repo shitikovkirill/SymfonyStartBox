@@ -100,7 +100,7 @@ services:
         class: AppBundle\Admin\OurWorksAdmin
         arguments: [~, AppBundle\Entity\OurWorks, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorks, show_in_dashboard: false }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorks }
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
         public: true
