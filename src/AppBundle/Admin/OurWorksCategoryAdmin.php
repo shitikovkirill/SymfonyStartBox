@@ -57,6 +57,9 @@ class OurWorksCategoryAdmin extends AbstractAdmin
                     'type_options' => array(
                         'delete' => true,
                     )
+                ),
+                array(
+                    'edit' => 'inline',
                 )
             )
             ->end();
