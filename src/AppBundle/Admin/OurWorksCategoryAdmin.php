@@ -57,12 +57,6 @@ class OurWorksCategoryAdmin extends AbstractAdmin
                     'type_options' => array(
                         'delete' => true,
                     )
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
-                    #'help' => $iconsOptionsHelp,
                 )
             )
             ->end();
