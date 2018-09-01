@@ -91,7 +91,7 @@ services:
         class: AppBundle\Admin\OurWorksCategoryAdmin
         arguments: [~, AppBundle\Entity\OurWorksCategory, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorksCategory }
+            - { name: sonata.admin, manager_type: orm, group: OurWorks, label: Category }
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
         public: true
@@ -100,7 +100,7 @@ services:
         class: AppBundle\Admin\OurWorksAdmin
         arguments: [~, AppBundle\Entity\OurWorks, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: OurWorks }
+            - { name: sonata.admin, manager_type: orm, group: OurWorks, label: Images }
         calls:
             - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
         public: true
