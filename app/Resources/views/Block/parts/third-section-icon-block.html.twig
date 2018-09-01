@@ -1,7 +1,7 @@
 <ul class="block-ico-left">
     {% for iconBlock in iconBlocks %}
         <li>
-            <svg class="icon icon-house" viewBox="0 0 32 32">
+            <svg class="icon icon-house" viewBox="{% if iconBlock.icon == 'work-boiler'%}0 0 63.904 63.904{% else %}0 0 32 32{% endif %}">
                 <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ iconBlock.icon }}"></use>
             </svg>
             {{ iconBlock.title }}

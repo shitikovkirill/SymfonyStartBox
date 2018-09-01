@@ -4,7 +4,7 @@
             <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s"
                 style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInDown;">
                 <span class="tooltip" itemprop="additionalProperty">{{ iconBlock.title }}</span>
-                <svg class="icon icon-services-best-plumbers" viewBox="0 0 32 32">
+                <svg class="icon icon-services-best-plumbers" viewBox="{% if iconBlock.icon == 'work-boiler'%}0 0 63.904 63.904{% else %}0 0 32 32{% endif %}">
                     <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ iconBlock.icon }}"></use>
                 </svg>
             </li>

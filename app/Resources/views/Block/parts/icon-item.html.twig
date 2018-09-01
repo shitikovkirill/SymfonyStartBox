@@ -1,6 +1,6 @@
 <li>
     <a {% if item.file %}href="/doc/{{ item.file }}" target="_blank"{% else %}href="javascript:void(0);"{% endif %}>
-        <svg class="icon" viewBox="0 0 32 32">
+        <svg class="icon" viewBox="{% if item.icon == 'work-boiler'%}0 0 63.904 63.904{% else %}0 0 32 32{% endif %}">
             <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ item.icon }}"></use>
         </svg>
         <span>{{ item.title }}</span>
