@@ -41,6 +41,14 @@ class IconFileBlock extends IconBlock
     private $updatedAt;
 
     /**
+     * @ORM\Column(name="orderliness", type="integer", options={"default" : 100})
+     *
+     * @var int
+     */
+    private $order = 100;
+
+
+    /**
      * @return string
      */
     public function getFile(): ?string
@@ -74,6 +82,22 @@ class IconFileBlock extends IconBlock
         if (null !== $tmpFile) {
             $this->updatedAt = new \DateTimeImmutable();
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param int $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
     }
 
     /**

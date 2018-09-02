@@ -44,7 +44,6 @@ class ServiceAdmin extends AbstractAdmin
                 ),
                 array(
                     'edit' => 'inline',
-                    'inline' => 'table',
                     'sortable' => 'position',
                 ))
         ;

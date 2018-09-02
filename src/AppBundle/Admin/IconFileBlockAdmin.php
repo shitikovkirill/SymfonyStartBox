@@ -21,6 +21,7 @@ class IconFileBlockAdmin extends IconBlockAdmin
                 'attr' =>
             ['accept'=> 'application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf'],
             ]
-        );
+        )
+        ->add('order');
     }
 }
