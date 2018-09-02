@@ -5,3 +5,11 @@ liip_imagine:
 
     filter_sets:
         cache: ~
+        main_thumb:
+
+            quality: 100
+
+            filters:
+                thumbnail : { size: [555, 238], mode: outbound }
+        web_image:
+            quality: 60

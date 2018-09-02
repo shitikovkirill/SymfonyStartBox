@@ -22,7 +22,7 @@
                     <div class="statistic-reviews our-work-category-item">
                         {% if category.ourWorks | length %}
                             {% for item in category.ourWorks %}
-                                <img width="350px" src="/images/{{ item.image }}" alt="{{ item.title }}">
+                                <img width="350px" src="{{ vich_uploader_asset(item, 'file') | imagine_filter('web_image')  }}" alt="{{ item.title }}">
                             {% endfor %}
                         {% else %}
                             <div class="empty-block">{{ 'This category do not have items' | trans }}</div>
