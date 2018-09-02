@@ -85,6 +85,8 @@ services:
         arguments: [~, AppBundle\Entity\IconFileBlock, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: IconFileBlock, show_in_dashboard: false  }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
         public: true
 
     app.admin.our_works_category:
