@@ -43,6 +43,9 @@ class SecondSectionAdmin extends AbstractAdmin
                             'description' => [
                                 'field_type' => CKEditorType::class,
                             ],
+                            'imageText' => [
+                                'field_type' => CKEditorType::class,
+                            ],
                         ]
                     ]
                 )
@@ -53,9 +56,10 @@ class SecondSectionAdmin extends AbstractAdmin
                 'deleteImage',
                 BooleanType::class,
                 [
+                    'preferred_choices' => [BooleanType::TYPE_NO],
                     'choices' => [
-                        'label_type_no' => BooleanType::TYPE_NO,
                         'label_type_yes' => BooleanType::TYPE_YES,
+                        'label_type_no' => BooleanType::TYPE_NO,
                     ],
                 ],
                 [

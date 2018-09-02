@@ -497,3 +497,13 @@ input.coun2{font-size:2.2rem;background-color:#7d8ac4}
 .our-work-category-item img {
 	margin: 10px;
 }
+.image-text {
+	font-size: 20px;
+	letter-spacing: -.023em;
+	display: inline-block;
+	position: absolute;
+	z-index: 999;
+	padding: 5px 5px 5px 5px;
+	left: 0;
+	top: 0;
+}

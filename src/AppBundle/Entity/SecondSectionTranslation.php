@@ -26,6 +26,11 @@ class SecondSectionTranslation
     protected $description;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $imageText;
+
+    /**
      * @return mixed
      */
     public function getTitle()
@@ -58,5 +63,21 @@ class SecondSectionTranslation
     public function setDescription($description): void
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageText()
+    {
+        return $this->imageText;
+    }
+
+    /**
+     * @param mixed $imageText
+     */
+    public function setImageText($imageText)
+    {
+        $this->imageText = $imageText;
     }
 }

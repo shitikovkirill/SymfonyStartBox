@@ -1,24 +1,27 @@
 <!--второй экран-->
 {% if sections %}
-<section class="container-fluid second-screen bg-gray" id="1">
-    <div class="row">
-        {% for section in sections %}
-            <div class="container">
-                {% if section.image %}
-                    <div class="thumb">
-                        <img itemprop="image"
-                             src="/images/{{ section.image }}"
-                             alt="{{ section.title }}">
-                    </div>
-                {% endif %}
+    <section class="container-fluid second-screen bg-gray" id="1">
+        <div class="row">
+            {% for section in sections %}
+                <div class="container">
+                    {% if section.image %}
+                        <div class="thumb">
+                            <img itemprop="image"
+                                 src="/images/{{ section.image }}"
+                                 alt="{{ section.title }}">
+                            {% if section.imageText %}
+                                <div class="image-text">{{ section.imageText | raw }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
 
-                <h2 class="title-medium text-center">{{ section.title }}</h2>
-                {{ section.description|raw }}
-                {% if section.iconBlocks | length %}
-                    {% include('Block/parts/info-menu.html.twig') with {'iconBlocks': section.iconBlocks} %}
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
-</section>
+                    <h2 class="title-medium text-center">{{ section.title }}</h2>
+                    {{ section.description|raw }}
+                    {% if section.iconBlocks | length %}
+                        {% include('Block/parts/info-menu.html.twig') with {'iconBlocks': section.iconBlocks} %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endif %}

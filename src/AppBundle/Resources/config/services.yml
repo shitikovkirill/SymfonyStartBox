@@ -3,7 +3,7 @@ services:
     app.block.service.main:
         class: AppBundle\Block\PageBlock
         arguments:
-            - 'main_page_header'
+            - 'main_page'
             - '@templating.engine.twig'
             - '@doctrine.orm.entity_manager'
         tags:
