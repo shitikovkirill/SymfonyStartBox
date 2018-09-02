@@ -42,9 +42,6 @@ class ContactAdmin extends AbstractAdmin
                         'contactsLeftSecond' => [
                             'field_type' => CKEditorType::class,
                         ],
-                        'contactsRightFirst' => [
-                            'field_type' => CKEditorType::class,
-                        ],
                     ]
                 ]
             )
