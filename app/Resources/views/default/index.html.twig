@@ -46,7 +46,7 @@
                             <div class="category">
                                 <h2><a href="{{ path('our_work_item', {'id': category.id}) }}">{{ category.title }}</a></h2>
                                 <a href="{{ path('our_work_item', {'id': category.id}) }}">
-                                    <img width="300px" src="/images/{{ category.image }}" alt="{{ category.title }}">
+                                    <img width="300px" src="{{ vich_uploader_asset(category, 'file') }}" alt="{{ category.title }}">
                                 </a>
                             </div>
                         {% endfor %}
