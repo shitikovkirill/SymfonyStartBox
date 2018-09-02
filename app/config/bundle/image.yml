@@ -12,9 +12,9 @@ liip_imagine:
                 thumbnail : { size: [555, 238], mode: outbound }
 
         web_image:
-            quality: 75
+            quality: 100
             filters:
-                thumbnail : { size: [350, 250], mode: inset }
+                thumbnail : { size: [700, 500], mode: inset }
 
         web_thumb:
             quality: 75
