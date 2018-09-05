@@ -13,3 +13,9 @@ head_brouser_title: __head_brouser_title
 order__count_seconds_for_coll__number: 43200
 Empty content. <br> You mast create page in admin in %category% category page with "slug" %slug%:
 our_works_title: __our_works_title
+meta_description: __meta_description
+meta_twitter_title: __meta_twitter_title
+meta_twitter_description: __meta_twitter_description
+meta_twitter_site: __meta_twitter_site
+meta_twitter_image_src: __meta_twitter_image_src
+meta_twitter_domain: __meta_twitter_domain
