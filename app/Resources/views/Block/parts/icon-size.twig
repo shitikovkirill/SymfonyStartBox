@@ -1,0 +1,17 @@
+{% macro size(icon) %}
+    {% spaceless %}
+        {% if icon == 'work-boiler' %}
+            {% set size = '0 0 63.904 63.904' %}
+        {% elseif icon == 'work-water_tap' %}
+            {% set size = '0 0 55.782 55.781' %}
+        {% elseif icon == 'work-filter' %}
+            {% set size = '0 0 43.922 43.921' %}
+        {% else %}
+            {% set size = '0 0 32 32' %}
+        {% endif %}
+
+
+        {{ size }}
+
+    {% endspaceless %}
+{% endmacro %}

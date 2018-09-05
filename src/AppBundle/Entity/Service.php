@@ -40,6 +40,7 @@ class Service
      *      joinColumns={@ORM\JoinColumn(name="service_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="icon_block_id", referencedColumnName="id")}
      *      )
+     * @ORM\OrderBy({"order" = "DESC"})
      */
     private $servicesIcons;
 

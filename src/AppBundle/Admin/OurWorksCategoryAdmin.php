@@ -3,22 +3,29 @@
 namespace AppBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
-use AppBundle\Entity\SecondSection;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use AppBundle\Entity\OurWorksCategory;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-class ThirdSectionAdmin extends AbstractAdmin
+class OurWorksCategoryAdmin extends AbstractAdmin
 {
     /** @var UploaderHelper $vichUploader Vich uploader */
     protected $vichUploader;
 
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('title')
+            ->add('image')
+        ;
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         /**
-         * @var SecondSection $page
+         * @var OurWorksCategory $page
          */
         $page = $this->getSubject();
         $imageFieldOptions = [
@@ -33,12 +40,18 @@ class ThirdSectionAdmin extends AbstractAdmin
         }
 
         $formMapper
-            ->add('file', 'file', $imageFieldOptions)
-            ->add(
-                'translations',
-                TranslationsType::class
-            )
-            ->add('iconBlocks',
+            ->with('Image', ['class' => 'col-md-4'])
+                ->add('file', 'file', $imageFieldOptions)
+            ->end()
+            ->with('Content', ['class' => 'col-md-8'])
+                ->add(
+                    'translations',
+                    TranslationsType::class
+                )
+            ->end()
+
+            ->with('')
+            ->add('ourWorks',
                 'sonata_type_collection',
                 array(
                     'type_options' => array(
@@ -47,18 +60,10 @@ class ThirdSectionAdmin extends AbstractAdmin
                 ),
                 array(
                     'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
                 )
             )
+            ->end();
         ;
-    }
-
-    public function configureListFields(ListMapper $list)
-    {
-
-        $list->addIdentifier('slug');
-        $list->add('title');
     }
 
     /**

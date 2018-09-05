@@ -3,7 +3,7 @@ services:
     app.block.service.main:
         class: AppBundle\Block\PageBlock
         arguments:
-            - 'main_page_header'
+            - 'main_page'
             - '@templating.engine.twig'
             - '@doctrine.orm.entity_manager'
         tags:
@@ -85,4 +85,24 @@ services:
         arguments: [~, AppBundle\Entity\IconFileBlock, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: IconFileBlock, show_in_dashboard: false  }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
+        public: true
+
+    app.admin.our_works_category:
+        class: AppBundle\Admin\OurWorksCategoryAdmin
+        arguments: [~, AppBundle\Entity\OurWorksCategory, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: our_works, label: Category }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
+        public: true
+
+    app.admin.our_works:
+        class: AppBundle\Admin\OurWorksAdmin
+        arguments: [~, AppBundle\Entity\OurWorks, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: our_works, label: Images, show_in_dashboard: false }
+        calls:
+            - [ setVichUploader, ['@vich_uploader.templating.helper.uploader_helper']]
         public: true

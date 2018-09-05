@@ -325,10 +325,10 @@ h2{font-size:20px;color:#323232;letter-spacing:-.05em;padding:10px 0 15px;font-w
 .info-object-screen h5{font-size:20px;letter-spacing:-.023em;color:#323232;display:inline-block;position:absolute;z-index:999;background:rgba(255,255,255,.6);padding:10px 15px 10px 30px;left:0;top:20px}
 .info-object-screen .block-ico-left{padding-top:25px}
 .services-screen{padding-bottom:30px}
-.services-screen svg{width:40px;float:left;margin-right:6px;fill:#7badce}
+.services-screen svg{width:40px;float:left;margin-right:6px;fill:#FFA500}
 .services-screen .block-ico-left > li{margin-bottom:15px}
 .services-screen .block-ico-left > li > a{text-decoration:none;color:#323232;display:table;width:100%}
-.services-screen .block-ico-left > li:hover svg,.services-screen .block-ico-left > li.active svg{fill:#4d7d9d}
+.services-screen .block-ico-left > li:hover svg,.services-screen .block-ico-left > li.active svg{fill:#E49B14}
 .services-screen .block-ico-left > li > a >span{display:table-cell;vertical-align:middle;text-align:left;width:100%;color:#333}
 .services-screen .block-ico-left > li:hover span,.services-screen .block-ico-left > li.active span{color:#323232}
 .content{float:left;padding:0 0 43px;background:#fff;width:100%}
@@ -403,7 +403,7 @@ h2{font-size:20px;color:#323232;letter-spacing:-.05em;padding:10px 0 15px;font-w
 .help-payment{width:50px;margin:5px 0 0 2px}
 .icon-check{width:45px;fill:#FFA500}
 .icon-house{width:50px;fill:#FFA500}
-.icon-house:hover{fill:#20C5A7}
+.icon-house:hover{fill:#E49B14}
 .soc-google{width:42px;fill:red}
 .soc-vk{width:50px;fill:#28577a}
 .soc-fb{width:20px;fill:#3c5596;text-align:center}
@@ -475,4 +475,40 @@ input.coun2{font-size:2.2rem;background-color:#7d8ac4}
 /* My Style*/
 .nav-bar a.logo img {
 	width: 163px;
+}
+.our-work {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.our-work .category {
+	flex-basis: 300px;
+	margin: 0 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.empty-block {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.our-work-category-item img {
+	margin: 10px;
+}
+.image-text {
+	display: inline-block;
+	position: absolute;
+	z-index: 999;
+	padding: 0 5px 5px 11px;
+	left: 0;
+	top: 0;
+}
+.image-text p {
+	line-height: 32px;
+	color: white;
+}
+.image-text a {
+	color: white;
 }

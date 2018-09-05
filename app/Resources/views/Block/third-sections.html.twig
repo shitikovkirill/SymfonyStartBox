@@ -4,7 +4,7 @@
         {% for section in sections %}
             <div class="container home">
                 <div class="thumb">
-                    <img src="/images/{{ section.image }}"
+                    <img src="{{ vich_uploader_asset(section, 'file')  | imagine_filter('main_thumb') }}"
                          alt="{{ section.title }}">
                     <h5>{{ section.title }}</h5>
                 </div>

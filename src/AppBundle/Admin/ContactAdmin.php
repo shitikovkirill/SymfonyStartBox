@@ -3,6 +3,7 @@
 namespace AppBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -14,7 +15,6 @@ class ContactAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('slug')
         ;
     }
@@ -22,15 +22,8 @@ class ContactAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('slug')
-            ->add('_action', null, [
-                'actions' => [
-                    'show' => [],
-                    'edit' => [],
-                    'delete' => [],
-                ],
-            ])
+            ->addIdentifier('slug')
+            ->add('contactsTitle')
         ;
     }
 
@@ -40,7 +33,17 @@ class ContactAdmin extends AbstractAdmin
             ->add('slug')
             ->add(
                 'translations',
-                TranslationsType::class
+                TranslationsType::class,
+                [
+                    'fields' => [
+                        'contactsLeft' => [
+                            'field_type' => CKEditorType::class,
+                        ],
+                        'contactsLeftSecond' => [
+                            'field_type' => CKEditorType::class,
+                        ],
+                    ]
+                ]
             )
         ;
     }

@@ -27,7 +27,7 @@ class HeaderAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('slug')
-            ->add('description');
+            ->add('title');
     }
 
     protected function configureFormFields(FormMapper $formMapper)

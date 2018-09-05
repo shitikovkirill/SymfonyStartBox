@@ -36,6 +36,26 @@
         }
     ) }}
 
+    {% if categories %}
+        <section class="container-fluid reviews-screen" id="3">
+            <div class="row">
+                <div class="container">
+                    <h3>{{ 'our_works_title' | trans }}</h3>
+                    <div class="statistic-reviews our-work">
+                        {% for category in categories %}
+                            <div class="category">
+                                <h2><a href="{{ path('our_work_item', {'id': category.id}) }}">{{ category.title }}</a></h2>
+                                <a href="{{ path('our_work_item', {'id': category.id}) }}">
+                                    <img width="300px" src="{{ vich_uploader_asset(category, 'file') | imagine_filter('web_thumb') }}" alt="{{ category.title }}">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
     {{ sonata_block_render(
         { 'type': 'app.block.service.main' },
         {

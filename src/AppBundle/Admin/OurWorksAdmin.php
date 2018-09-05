@@ -3,22 +3,30 @@
 namespace AppBundle\Admin;
 
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
-use AppBundle\Entity\SecondSection;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use AppBundle\Entity\OurWorks;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
-class ThirdSectionAdmin extends AbstractAdmin
+class OurWorksAdmin extends AbstractAdmin
 {
     /** @var UploaderHelper $vichUploader Vich uploader */
     protected $vichUploader;
 
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('id')
+            ->add('image')
+            ->add('order')
+        ;
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         /**
-         * @var SecondSection $page
+         * @var OurWorks $page
          */
         $page = $this->getSubject();
         $imageFieldOptions = [
@@ -33,32 +41,13 @@ class ThirdSectionAdmin extends AbstractAdmin
         }
 
         $formMapper
+            ->add('order', null, ['help'=>'Values are sorted in descending order.'])
             ->add('file', 'file', $imageFieldOptions)
             ->add(
                 'translations',
                 TranslationsType::class
             )
-            ->add('iconBlocks',
-                'sonata_type_collection',
-                array(
-                    'type_options' => array(
-                        'delete' => true,
-                    )
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
-                )
-            )
         ;
-    }
-
-    public function configureListFields(ListMapper $list)
-    {
-
-        $list->addIdentifier('slug');
-        $list->add('title');
     }
 
     /**

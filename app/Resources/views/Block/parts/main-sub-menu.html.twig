@@ -1,10 +1,11 @@
+{% import "Block/parts/icon-size.twig" as icon %}
 <div>
     <ul class="sub-menu">
         {% for iconBlock in iconBlocks %}
             <li class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s"
                 style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInDown;">
                 <span class="tooltip" itemprop="additionalProperty">{{ iconBlock.title }}</span>
-                <svg class="icon icon-services-best-plumbers" viewBox="0 0 32 32">
+                <svg class="icon icon-services-best-plumbers" viewBox="{{ icon.size(iconBlock.icon) }}">
                     <use xlink:href="{{ asset('assets/style/sprite.svg') }}#{{ iconBlock.icon }}"></use>
                 </svg>
             </li>

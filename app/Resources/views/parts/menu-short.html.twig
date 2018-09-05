@@ -1,0 +1,31 @@
+<ul class="nav-bar">
+    <li class="animated flipInX">
+        <a class="logo" href="{{ path('homepage') }}" title="вызов сантехника в Украине">
+            <img src="{{ asset('assets/img/logo_RU-min.png') }}">
+            <b itemprop="name">{{ 'logo_string'|trans }}</b>
+        </a>
+    </li>
+    <li>
+        <div class="text-center phone-block">
+            <a href="tel:{{ 'header_phone_number_number'|trans }}" class="phone animated flipInX">
+                <strong itemprop="telephone">{{ 'header_phone_number_string'|trans }}</strong>
+                <br>
+                <span>{{ 'header_description_ander_phone_number'|trans }}</span>
+            </a>
+
+        </div>
+    </li>
+    <li id="123" class="text-right">
+        <div class="menu-button btn-modal menus">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu animated flipInX" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                <a href="#4" itemprop="item"><span itemprop="name">{{ 'header_menu_contacts'|trans }}</span></a>
+                <meta itemprop="position" content="4">
+            </li>
+        </ul>
+    </li>
+</ul>

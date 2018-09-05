@@ -2,16 +2,15 @@
 
 namespace AppBundle\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Class SecondSectionTranslation
+ * Class OurWorksTranslation
  *
  * @ORM\Entity()
  */
-class SecondSectionTranslation
+class OurWorksTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
@@ -21,14 +20,9 @@ class SecondSectionTranslation
     protected $title;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(nullable=true)
      */
     protected $description;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $imageText;
 
     /**
      * @return mixed
@@ -60,24 +54,8 @@ class SecondSectionTranslation
     /**
      * @param mixed $description
      */
-    public function setDescription($description): void
+    public function setDescription($description)
     {
         $this->description = $description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImageText()
-    {
-        return $this->imageText;
-    }
-
-    /**
-     * @param mixed $imageText
-     */
-    public function setImageText($imageText)
-    {
-        $this->imageText = $imageText;
     }
 }

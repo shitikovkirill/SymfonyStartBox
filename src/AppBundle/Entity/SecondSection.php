@@ -148,7 +148,7 @@ class SecondSection
     /**
      * @param string $image
      */
-    public function setImage(string $image): void
+    public function setImage(?string $image): void
     {
         $this->image = $image;
     }
@@ -164,12 +164,12 @@ class SecondSection
     /**
      * @param bool $deleteImage
      */
-    public function setDeleteImage(bool $deleteImage): void
+    public function setDeleteImage($deleteImage): void
     {
-        if ($deleteImage) {
+        if ($deleteImage == 1) {
             $this->image = null;
         }
-        $this->deleteImage = $deleteImage;
+        $this->deleteImage = $deleteImage == 1 ? true : false;
     }
 
     /**

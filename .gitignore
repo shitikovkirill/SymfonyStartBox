@@ -17,3 +17,6 @@
 /web/bundles/
 /web/images/*
 /web/doc/*
+/web/media/cache
+*.yml~
+*.sql
