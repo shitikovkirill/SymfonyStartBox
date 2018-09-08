@@ -10,7 +10,7 @@ call_request_on_a_call_back_title: Замовте зворотній дзвін�
 call_request_on_a_call_back_subtitle: Залиште номер телефону, ми з вами зв'яжемося протягом доби
 call_request_on_a_call_back_button: замовити
 footer_text_line: __footer_text_line
-head_brouser_title: Виклик сантехніка на будинок послуги сантехніка установка ремонт заміна
+head_brouser_title: Виклик сантехніка додому послуги сантехніка установка ремонт заміна
 order__count_seconds_for_coll__number: 43200
 Empty content. <br> You mast create page in admin in %category% category page with "slug" %slug%:
 our_works_title: Наші роботи:
