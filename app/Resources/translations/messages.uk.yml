@@ -1,22 +1,22 @@
 logo_string: __logo_string
-header_phone_number_number: __header_phone_number_number
-header_phone_number_string: __header_phone_number_string
-header_description_ander_phone_number: __header_description_ander_phone_number
-header_menu_call: __header_menu_call
-header_menu_services: __header_menu_services
-header_menu_contacts: __header_menu_contacts
-header_select_lenguage: __header_select_lenguage
-call_request_on_a_call_back_title: __call_request_on_a_call_back_title
-call_request_on_a_call_back_subtitle: __call_request_on_a_call_back_subtitle
-call_request_on_a_call_back_button: __call_request_on_a_call_back_button
+header_phone_number_number: +380800218111
+header_phone_number_string: ✆ 0 800 218 111
+header_description_ander_phone_number: Безкоштовний дзвінок по всій Україні
+header_menu_call: Виклик
+header_menu_services: Послуги
+header_menu_contacts: Контакти
+header_select_lenguage: Виберіть мову
+call_request_on_a_call_back_title: Замовте зворотній дзвінок
+call_request_on_a_call_back_subtitle: Залиште номер телефону, ми з вами зв'яжемося протягом доби
+call_request_on_a_call_back_button: замовити
 footer_text_line: __footer_text_line
-head_brouser_title: __head_brouser_title
+head_brouser_title: Виклик сантехніка на будинок послуги сантехніка установка ремонт заміна
 order__count_seconds_for_coll__number: 43200
 Empty content. <br> You mast create page in admin in %category% category page with "slug" %slug%:
-our_works_title: __our_works_title
-meta_description: __meta_description
-meta_twitter_title: __meta_twitter_title
-meta_twitter_description: __meta_twitter_description
-meta_twitter_site: __meta_twitter_site
+our_works_title: Наші роботи:
+meta_description: Вызов сантехника на дом ❘ Услуги сантехника ❘ гарантия выполненых работ ❘ Звоните ✆ 0 800 218 111
+meta_twitter_title: Виклик сантехніка
+meta_twitter_description: Потрібно викликати кваліфікованого сантехніка додому? Телефонуйте 0 800 218 111, дзвінок по Україні безкоштовний.
+meta_twitter_site: сантехник
 meta_twitter_image_src: __meta_twitter_image_src
 meta_twitter_domain: __meta_twitter_domain
