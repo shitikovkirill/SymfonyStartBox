@@ -1,0 +1,15 @@
+{% for locale in locales %}
+    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="menu-language">
+        <a href="{{ locale.link }}"
+           itemprop="item"
+           class="language {% if current_locale == locale.locale %} disabled{% endif %}"
+           title="{{ locale.locale_current_language }}"
+        >
+            {% if locale.locale == "ru" %}
+               <img src="{{ asset('assets/img/russia.png') }}">
+            {% elseif locale.locale == "uk" %}
+                <img src="{{ asset('assets/img/ukraine.png') }}">
+            {% endif %}
+        </a>
+    </li>
+{% endfor %}

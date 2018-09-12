@@ -512,3 +512,19 @@ input.coun2{font-size:2.2rem;background-color:#7d8ac4}
 .image-text a {
 	color: white;
 }
+
+.menu {
+	padding-right: 35px;
+}
+
+.menu-language {
+    position: absolute;
+}
+
+.menu-language .language {
+	padding: 0 2px 0;
+}
+
+.menu-language .language.disabled {
+	display: none;
+}
